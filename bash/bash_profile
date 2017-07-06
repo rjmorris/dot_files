@@ -1,0 +1,13 @@
+# This file is sourced when you start a bash login shell. Login shells are
+# started in the following scenarios:
+#
+#   - connect via ssh
+#   - switch to a different user with su -
+#   - log in at the text console
+#   - start bash with the --login option
+#
+# Prior to sourcing this file, bash sources the system profile in /etc/profile.
+#
+# To simplify, place everything in bashrc.
+
+source ~/.bashrc

@@ -1,0 +1,43 @@
+# ~/.inputrc: Set readline variables and keybindings.
+# Further settings may be found in /etc/inputrc.
+# See man readline or man bash for details.
+
+
+# --- Variables ---
+
+set bell-style none
+#set show-all-if-ambiguous on
+set skip-completed-text on
+
+
+# --- Keybindings ---
+
+$if term=rxvt
+
+# Below are the escape codes for special keys. Find these from the bash prompt
+# by typing C-v and then the special key. Replace ^[ with \e.
+#
+#   "\e[A"  - up
+#   "\e[B"  - down
+#   "\e[C"  - right
+#   "\e[D"  - left
+#   "\e[5~" - page up
+#   "\e[6~" - page down
+#   "\e[7~" - home
+#   "\e[8~" - end
+#   "\e0a"  - Ctrl-up
+#   "\e0b"  - Ctrl-down
+#   "\e0c"  - Ctrl-right
+#   "\e0d"  - Ctrl-left
+#   "\e[5^" - Ctrl-page up
+#   "\e[6^" - Ctrl-page down
+#   "\e[7^" - Ctrl-home
+#   "\e[8^" - Ctrl-end
+
+# Enable partial history completion.
+# Type a few characters, then use the up and down arrows to cycle through
+# history commands that start with those letters.
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+$endif

@@ -1,0 +1,293 @@
+# This file is sourced when you start an interactive, non-login shell. These are
+# the most common shells, started in scenarios such as the following:
+#
+#   - open a terminal in a graphical session
+#   - open an emacs shell buffer
+#   - start a shell within an existing shell
+#
+# This file IS NOT sourced when you start a non-interactive, non-login shell,
+# such as when running a bash script. There is one exception to this, though, on
+# Debian at least: It is sourced when running a command remotely via ssh. For
+# consistency with other non-interactive shells, prevent this file from running
+# in non-interactive mode.
+#
+# Prior to sourcing this file, bash sources the system bashrc in
+# /etc/bash.bashrc.
+#
+# Because this file might be sourced in an environment multiple times, ideally
+# its actions will be idempotent. That is, running an action multiple times will
+# always produce the same result.
+#
+# This file shouldn't write anything to stdout. Doing so will cause problems
+# with scp and sftp.
+
+
+# Bail out if not running interactively.
+if [[ $- != *i* ]]; then
+    return 0
+fi
+
+
+#-------------------------------------------------------------------------------
+# Utility functions
+
+function source_if_available() {
+    local file=$1
+
+    if [[ -f $file && -r $file ]]; then
+        source "$file"
+        return 0
+    fi
+
+    return 1
+}
+
+function source_first_available() {
+    until [[ $# == 0 ]]; do
+        if source_if_available "$1"; then
+            return 0
+        fi
+        shift
+    done
+
+    return 1
+}
+
+function source_dir() {
+    local dir=$1
+    local file
+
+    if [[ -d $dir && -r $dir && -x $dir ]]; then
+        for file in "$dir"/*; do
+           source_if_available "$file"
+        done
+
+        return 0
+    fi
+
+    return 1
+}
+
+function add_to_path() {
+    local dir=$(readlink -f "$1")
+
+    local after_before=$2
+    if [[ -z $after_before ]]; then
+        after_before=before
+    fi
+
+    if [[ -d $dir && ":$PATH:" != *":$dir:"* ]]; then
+        if [[ $after_before == "before" ]]; then
+            export PATH=$dir:$PATH
+        else
+            export PATH=$PATH:$dir
+        fi
+    fi
+}
+
+# Set the terminal's title.
+function set_title() {
+    echo -n -e "\033]0;$*\007"
+}
+
+
+#-------------------------------------------------------------------------------
+# PATH section
+
+for app_dir in /usr/local/apps/*; do
+    add_to_path $app_dir/bin
+done
+
+for app_dir in ~/apps/*; do
+    add_to_path $app_dir/bin
+done
+
+add_to_path ~/local/bin
+add_to_path ~/bin
+
+
+#-------------------------------------------------------------------------------
+# Bash options section
+
+# Autocorrect cd misspellings.
+shopt -s cdspell
+
+# Update LINES and COLUMNS after each command.
+shopt -s checkwinsize
+
+# Save all lines of a multiple-line command in the same history entry.
+shopt -s cmdhist
+
+# Enable aliases (such as alias rm='rm -i').
+shopt -s expand_aliases
+
+# Complete an FIGNORE'd file if it's the only possible completion.
+shopt -u force_fignore
+
+# Append to the history file when the shell exits.
+shopt -s histappend
+
+# Add failed commands to the history.
+shopt -s histreedit
+
+# Enable programmable completion (completion rules installed by specific
+# applications).
+shopt -s progcomp
+
+# Perform parameter expansion, command substition, etc. on the prompt.
+shopt -s promptvars
+
+# Search PATH to find sourced files.
+shopt -s sourcepath
+
+
+#-------------------------------------------------------------------------------
+# Prompt section
+
+# Define more human-readable names for formatting sequences.
+
+reset=$(tput sgr0)
+bold=$(tput bold)
+
+function on_prompt() {
+    # Set the prompt to user:cwd.
+
+    # PS1="\[$reset\]\[$bold\]\u:\w \$\[$reset\] "
+
+    # Make a two-line prompt with cwd on first line and user@host on the second.
+
+    # PS1="\[$reset\]\[$bold\]\w\n\u@\h \$\[$reset\] "
+
+    # Similar two-line prompt, but use unicode characters to create a "bar" effect
+    # at the edge of the prompt and to separate the user from the hostname. The @
+    # sign doesn't work well in the prompt when using the DejaVu font, because the @
+    # is too wide and is truncated by the next character. It works OK with other
+    # fonts, though. (See ~/.Xresources for defining the font.)
+
+    # PS1=$'\[$reset\]\[$bold\]║\w\n║\u•\h \$\[$reset\] '
+
+    # Similar two-line prompt, but with a different "bar" effect.
+
+    # PS1=$'\[$reset\]\[$bold\]▍\w\n▍\u•\h \$\[$reset\] '
+
+    # Extract the name of the current python virtual environment, if any. By
+    # default, pyvenv simply prepends the virtual enronment name to the prompt,
+    # which won't work well with my custom prompt.
+
+    local py_env
+
+    if [[ $VIRTUAL_ENV != "" ]]; then
+        py_env=${VIRTUAL_ENV##*/}
+    elif [[ $CONDA_DEFAULT_ENV != "" ]]; then
+        py_env="$CONDA_DEFAULT_ENV"
+    else
+        py_env=''
+    fi
+
+    if [[ $py_env != "" ]]; then
+        PY_ENV_PS1=" • py:${py_env}"
+    else
+        PY_ENV_PS1=''
+    fi
+
+    # Extract the name of the current git branch, if any.
+
+    local git_branch
+
+    git_branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+    if [[ $git_branch == "HEAD" ]]; then
+        git_branch="detached"
+    fi
+
+    if [[ $git_branch != "" ]]; then
+        GIT_BRANCH_PS1=" • git:${git_branch}"
+    else
+        GIT_BRANCH_PS1=''
+    fi
+
+    # Two-line prompt:
+    #  line 1: working directory
+    #  line 2: environment info and prompt
+
+    # PS1=$'\[$reset\]\[$bold\]▍\w\n▍\u • \h${PY_ENV_PS1}${GIT_BRANCH_PS1} \$\[$reset\] '
+
+    # Three-line prompt:
+    #   line 1: environment info
+    #   line 2: working directory
+    #   line 3: prompt
+
+    PS1=$'\[$reset\]\[$bold\]\n▍\u • \h${PY_ENV_PS1}${GIT_BRANCH_PS1}\n▍\w\n▍\$\[$reset\] '
+}
+
+# PROMPT_COMMAND defines a command to run before displaying each new prompt. (By
+# default, it changes the window title. I hate that behavior, so if not
+# overriding it with my own command, at least disable it.)
+
+#unset PROMPT_COMMAND
+export PROMPT_COMMAND=on_prompt
+
+
+#-------------------------------------------------------------------------------
+# Alias section
+
+# for protecting myself
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias ln='ln -i'
+
+# for ls
+
+alias ls='ls -F'
+alias sl='ls -F'
+alias ks='ls -F'
+alias  s='ls -F'
+
+# app-specific
+
+alias R='R --no-restore --no-save'
+
+
+#-------------------------------------------------------------------------------
+# Python section
+
+export PYENV_ROOT="$HOME/apps/pyenv"
+add_to_path $PYENV_ROOT/bin
+eval "$(pyenv init -)"
+
+# This must come after the prompt section, because it alters PROMPT_COMMAND.
+eval "$(pyenv virtualenv-init -)"
+
+
+#-------------------------------------------------------------------------------
+# Miscellaneous section
+
+umask 027
+
+# disable shell mail checking
+unset MAILCHECK
+
+# ignore backup filenames when completing
+FIGNORE="~"
+
+# Disable flow control (in which ^S freezes the terminal and ^Q unfreezes). The
+# docs are unclear, but according to http://superuser.com/a/595508, -ixon
+# prevents the client from sending flow control commands, and -ixoff prevents
+# the host from sending flow control commands. These should be enough to disable
+# it. Just to be sure, also unbind the stop and start actions.
+stty -ixon
+stty -ixoff
+stty stop undef
+stty start undef
+
+# Enable bash completion in interactive shells.
+if ! shopt -oq posix; then
+    source_first_available /usr/share/bash-completion/bash_completion /etc/bash_completion
+fi
+
+
+#-------------------------------------------------------------------------------
+# Local settings
+
+source_if_available $HOME/.bashrc.local
