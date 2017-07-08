@@ -69,7 +69,7 @@ function source_dir() {
 }
 
 function add_to_path() {
-    local dir=$(readlink -f "$1")
+    local dir=$1
 
     local after_before=$2
     if [[ -z $after_before ]]; then
