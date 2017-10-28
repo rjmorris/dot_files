@@ -90,6 +90,10 @@ function set_title() {
     echo -n -e "\033]0;$*\007"
 }
 
+function command_exists() {
+    command -v "$1" &>/dev/null;
+}
+
 
 #-------------------------------------------------------------------------------
 # PATH section
@@ -285,6 +289,14 @@ stty start undef
 if ! shopt -oq posix; then
     source_first_available /usr/share/bash-completion/bash_completion /etc/bash_completion
 fi
+
+# Make sure to use a decent editor
+if command_exists emacs; then
+    export EDITOR=$(command -v emacs)
+else
+    export EDITOR=$(command -v vi)
+fi
+export VISUAL=$EDITOR
 
 
 #-------------------------------------------------------------------------------
