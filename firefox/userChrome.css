@@ -1,0 +1,28 @@
+.autocomplete-history-dropmarker,  /* dropdown menu button in address bar */
+.search-go-button  /* Magnifying Glass button in search bar */
+{
+  display: none !important; 
+}
+
+
+/* Clean up the Bookmarks menu */
+#organizeBookmarksSeparator,
+#menu_pocket,
+#menu_pocketSeparator,
+#subscribeToPageMenuitem,
+#menu_bookmarkAllTabs,
+#bookmarksToolbarFolderMenu,
+#bookmarksToolbarSeparator,
+#menu_recentBookmarks,
+#menu_unsortedBookmarks
+{
+  display: none !important; 
+}
+
+
+/* Hide the placeholder text in the location and search bars.
+ */
+.searchbar-textbox .textbox-input::placeholder,
+.urlbar-input::placeholder {
+  color: transparent !important;  
+}
