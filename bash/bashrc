@@ -257,12 +257,15 @@ alias dc=docker-compose
 #-------------------------------------------------------------------------------
 # Python section
 
-export PYENV_ROOT="$HOME/apps/pyenv"
-add_to_path $PYENV_ROOT/bin
-eval "$(pyenv init -)"
+PYENV_ROOT="$HOME/apps/pyenv"
+if [[ -d $PYENV_ROOT ]]; then
+    export PYENV_ROOT
+    add_to_path $PYENV_ROOT/bin
+    eval "$(pyenv init -)"
 
-# This must come after the prompt section, because it alters PROMPT_COMMAND.
-eval "$(pyenv virtualenv-init -)"
+    # This must come after the prompt section, because it alters PROMPT_COMMAND.
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 
 #-------------------------------------------------------------------------------
