@@ -27,6 +27,7 @@ user_pref("browser.urlbar.suggest.openpage", false);
 user_pref("dom.forms.autocomplete.formautofill", false);
 user_pref("general.warnOnAboutConfig", false);
 user_pref("layout.spellcheckDefault", 0);
+user_pref("media.autoplay.enabled", false);
 user_pref("network.cookie.cookieBehavior", 1);
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.http.speculative-parallel-limit", 0);
