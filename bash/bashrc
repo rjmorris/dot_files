@@ -271,7 +271,10 @@ fi
 #-------------------------------------------------------------------------------
 # Miscellaneous section
 
-umask 027
+# 027 is more secure in a multi-user environment but is more trouble than it's
+# worth in a single-user environment. Commands run as root, such as through
+# sudo, often create files that you can't read as a normal user.
+umask 022
 
 # disable shell mail checking
 unset MAILCHECK
