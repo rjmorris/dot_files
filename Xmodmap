@@ -1,0 +1,23 @@
+! Set the Caps Lock key to a Control key.
+!
+! NOTES:
+!
+!   1) This is currently configured in .xession with the command:
+!        setxkbmap -option ctrl:nocaps
+!      and has therefore been commented out of this file.
+!
+!   2) This can also be implemented by setting the "ctrl:nocaps" option
+!      in the keyboard section of /etc/X11/xorg.conf. However, doing it
+!      there makes it a global setting, while doing it here makes it a
+!      user setting.
+!clear Lock
+!keysym Caps_Lock = Control_L
+!add Control = Control_L
+
+!add Mod1 = Meta_L
+
+!clear Mod4
+!add Mod4 = Super_L Super_R
+
+! Swap the left and right mouse buttons for left-handed use.
+pointer = 3 2 1 4 5
