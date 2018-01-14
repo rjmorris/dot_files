@@ -1,0 +1,142 @@
+[
+	{
+		"enabled": true,
+		"updateUrl": "",
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"sections": [
+			{
+				"code": "body {\n    font-size: 100% !important;\n    font-family: sans-serif !important;\n  }\n\n  * {\n    line-height: 1.4em !important;\n  }\n\n  .story {\n    font-size: 100% !important;\n  }\n\n  #content-main .more-story-highlight p {\n    font-size: 100% !important;\n  }\n\n  #story-assets .blk10 {\n    font-size: 100% !important;\n  }\n\n  #content-center .story-image {\n    font-size: 100% !important;\n  }\n\n  div.promo-box .body {\n    font-size: 100% !important;\n  }\n\n  div#mi_story_embedded .story_assets #more_assets {\n    font-size: 100% !important;\n  }\n  \n  #pressplusOverlay,\n  #ppUI,\n  #newsletter-signUpWidget,\n  #story-related,\n  #story-cta-widget,\n  .embed-media,\n  .ng_digital,\n  .s2nPlayer,\n  .s2nFriendlyFrame,\n  .tout-sdk\n  {\n    display: none !important;\n  }",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"www.newsobserver.com"
+				],
+				"regexps": []
+			}
+		],
+		"name": "N&O",
+		"id": 1
+	},
+	{
+		"enabled": true,
+		"updateUrl": "",
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"sections": [
+			{
+				"code": "body {\n    font-size: 100% !important;\n  }\n  #leftbar, #sidebar {\n    display: none !important;\n  }\n  .post {\n    width: 45em;\n  }\n  .twtr-widget {\n    display: none !important;\n  }\n  .followus_r {\n    display: none !important;\n  }\n  .wp_followme_c2 {\n    display: none !important;\n  }",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"uniwatchblog.com"
+				],
+				"regexps": []
+			}
+		],
+		"name": "Uni Watch",
+		"id": 4
+	},
+	{
+		"enabled": false,
+		"updateUrl": "",
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"sections": [
+			{
+				"code": "div#globalWrapper {\n    font-size: 100% !important;\n  }\n  #bodyContent {\n    font-size: 100% !important;\n  }\n  .mw-headline {\n    font-family: sans-serif !important;\n  }",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"wikipedia.org"
+				],
+				"regexps": []
+			}
+		],
+		"name": "Wikipedia",
+		"id": 5
+	},
+	{
+		"enabled": false,
+		"updateUrl": "",
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"sections": [
+			{
+				"code": "* {\n    font-family: sans-serif !important;\n  }\n\n  .story-heading {\n    font-style: normal !important;\n    font-size: 1.2rem !important;\n    line-height: 1.3rem !important;\n  }\n  .story.theme-summary .summary {\n    font-size: 0.875rem !important;\n  }",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"nytimes.com"
+				],
+				"regexps": []
+			}
+		],
+		"name": "NY Times",
+		"id": 8
+	},
+	{
+		"enabled": true,
+		"updateUrl": "",
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"sections": [
+			{
+				"code": ".left-post-container .post-content-area {\n    font-family: sans-serif !important;\n    font-size: 100% !important;\n  }\n  #main-container {\n    min-width: 600px !important;\n  }\n  #sidebar {\n    display: none;\n  }",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"avsforum.com"
+				],
+				"regexps": []
+			}
+		],
+		"name": "AVS Forum",
+		"id": 16
+	},
+	{
+		"enabled": true,
+		"updateUrl": "",
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"sections": [
+			{
+				"code": "td, th, p, li {\n    font-size: 100% !important;\n    font-family: sans-serif !important;\n  }",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"city-data.com"
+				],
+				"regexps": []
+			}
+		],
+		"name": "city-data",
+		"id": 17
+	},
+	{
+		"enabled": true,
+		"updateUrl": "",
+		"md5Url": null,
+		"url": null,
+		"originalMd5": null,
+		"sections": [
+			{
+				"code": "body {\n    font: normal 16px sans-serif;\n  }\n  .pb-f-article-article-body.full article > p {\n    font-size: 100% !important;\n  }",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"washingtonpost.com"
+				],
+				"regexps": []
+			}
+		],
+		"name": "Washington Post",
+		"id": 19
+	}
+]
