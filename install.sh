@@ -7,6 +7,3 @@ ln -sf $HOME/.dot_files/Xmodmap .Xmodmap
 
 mkdir -p .config/git
 ln -sf $HOME/.dot_files/git/ignore .config/git/ignore
-
-# TODO: Install firefox userChrome.css
-
