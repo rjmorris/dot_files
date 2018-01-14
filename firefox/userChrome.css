@@ -1,5 +1,5 @@
-.autocomplete-history-dropmarker,  /* dropdown menu button in address bar */
-.search-go-button  /* Magnifying Glass button in search bar */
+/* Clean up the search bar. */
+.search-go-button  /* Magnifying Glass button */
 {
   display: none !important; 
 }
@@ -17,6 +17,15 @@
 #menu_unsortedBookmarks
 {
   display: none !important; 
+}
+
+/* Clean up the address bar. */
+.autocomplete-history-dropmarker,  /* down arrow to show menu with autocomplete options */
+#pageActionButton, /* "three dots" icon to show menu with more actions */
+#pageActionSeparator,
+#star-button-box /* star icon to bookmark the current page */
+{
+  display: none !important;
 }
 
 
