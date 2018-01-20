@@ -251,6 +251,7 @@ alias  s='ls -F'
 # app-specific
 
 alias R='R --no-restore --no-save'
+alias d=docker
 alias dc=docker-compose
 
 
