@@ -1,5 +1,6 @@
 [
 	{
+		"installDate": 1515502496537,
 		"enabled": true,
 		"updateUrl": "",
 		"md5Url": null,
@@ -7,19 +8,20 @@
 		"originalMd5": null,
 		"sections": [
 			{
-				"code": "body {\n    font-size: 100% !important;\n    font-family: sans-serif !important;\n  }\n\n  * {\n    line-height: 1.4em !important;\n  }\n\n  .story {\n    font-size: 100% !important;\n  }\n\n  #content-main .more-story-highlight p {\n    font-size: 100% !important;\n  }\n\n  #story-assets .blk10 {\n    font-size: 100% !important;\n  }\n\n  #content-center .story-image {\n    font-size: 100% !important;\n  }\n\n  div.promo-box .body {\n    font-size: 100% !important;\n  }\n\n  div#mi_story_embedded .story_assets #more_assets {\n    font-size: 100% !important;\n  }\n  \n  #pressplusOverlay,\n  #ppUI,\n  #newsletter-signUpWidget,\n  #story-related,\n  #story-cta-widget,\n  .embed-media,\n  .ng_digital,\n  .s2nPlayer,\n  .s2nFriendlyFrame,\n  .tout-sdk\n  {\n    display: none !important;\n  }",
 				"urls": [],
 				"urlPrefixes": [],
 				"domains": [
 					"www.newsobserver.com"
 				],
-				"regexps": []
+				"regexps": [],
+				"code": "body {\n    font-size: 100% !important;\n    font-family: sans-serif !important;\n  }\n\n  * {\n    line-height: 1.4em !important;\n  }\n\n  .story {\n    font-size: 100% !important;\n  }\n\n  #content-main .more-story-highlight p {\n    font-size: 100% !important;\n  }\n\n  #story-assets .blk10 {\n    font-size: 100% !important;\n  }\n\n  #content-center .story-image {\n    font-size: 100% !important;\n  }\n\n  div.promo-box .body {\n    font-size: 100% !important;\n  }\n\n  div#mi_story_embedded .story_assets #more_assets {\n    font-size: 100% !important;\n  }\n  \n  #pressplusOverlay,\n  #ppUI,\n  #newsletter-signUpWidget,\n  #story-related,\n  #story-cta-widget,\n  #zerg-target,\n  .embed-media,\n  .ng_digital,\n  .s2nPlayer,\n  .s2nFriendlyFrame,\n  .tout-sdk\n  {\n    display: none !important;\n  }"
 			}
 		],
 		"name": "N&O",
 		"id": 1
 	},
 	{
+		"installDate": 1515502496544,
 		"enabled": true,
 		"updateUrl": "",
 		"md5Url": null,
@@ -40,6 +42,7 @@
 		"id": 4
 	},
 	{
+		"installDate": 1515502496554,
 		"enabled": false,
 		"updateUrl": "",
 		"md5Url": null,
@@ -60,6 +63,7 @@
 		"id": 5
 	},
 	{
+		"installDate": 1515502496557,
 		"enabled": false,
 		"updateUrl": "",
 		"md5Url": null,
@@ -80,6 +84,7 @@
 		"id": 8
 	},
 	{
+		"installDate": 1515502496561,
 		"enabled": true,
 		"updateUrl": "",
 		"md5Url": null,
@@ -100,6 +105,7 @@
 		"id": 16
 	},
 	{
+		"installDate": 1515502496569,
 		"enabled": true,
 		"updateUrl": "",
 		"md5Url": null,
@@ -120,6 +126,7 @@
 		"id": 17
 	},
 	{
+		"installDate": 1515502496571,
 		"enabled": true,
 		"updateUrl": "",
 		"md5Url": null,
