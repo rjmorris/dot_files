@@ -205,7 +205,12 @@ function on_prompt() {
     # works OK with other fonts, though. (See ~/.Xresources for defining the
     # font.)
 
-    PS1=$'\[$reset\]\[$bold\]\n▍\u • \h${PY_ENV_PS1}${GIT_BRANCH_PS1}\n▍\w\n▍\$\[$reset\] '
+    local line0 line1 line2 line3
+    line0=$''
+    line1=$'▍\u • \h${PY_ENV_PS1}${GIT_BRANCH_PS1}'
+    line2=$'▍\w'
+    line3=$'▍\$ '
+    PS1="\[$reset\]\[$bold\]$line0\n$line1\n$line2\n$line3\[$reset\]"
 }
 
 # PROMPT_COMMAND defines a command to run before displaying each new prompt. (By
