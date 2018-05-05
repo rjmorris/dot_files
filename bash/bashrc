@@ -154,25 +154,6 @@ reset=$(tput sgr0)
 bold=$(tput bold)
 
 function on_prompt() {
-    # Set the prompt to user:cwd.
-
-    # PS1="\[$reset\]\[$bold\]\u:\w \$\[$reset\] "
-
-    # Make a two-line prompt with cwd on first line and user@host on the second.
-
-    # PS1="\[$reset\]\[$bold\]\w\n\u@\h \$\[$reset\] "
-
-    # Similar two-line prompt, but use unicode characters to create a "bar" effect
-    # at the edge of the prompt and to separate the user from the hostname. The @
-    # sign doesn't work well in the prompt when using the DejaVu font, because the @
-    # is too wide and is truncated by the next character. It works OK with other
-    # fonts, though. (See ~/.Xresources for defining the font.)
-
-    # PS1=$'\[$reset\]\[$bold\]║\w\n║\u•\h \$\[$reset\] '
-
-    # Similar two-line prompt, but with a different "bar" effect.
-
-    # PS1=$'\[$reset\]\[$bold\]▍\w\n▍\u•\h \$\[$reset\] '
 
     # Extract the name of the current python virtual environment, if any. By
     # default, pyvenv simply prepends the virtual enronment name to the prompt,
@@ -209,16 +190,19 @@ function on_prompt() {
         GIT_BRANCH_PS1=''
     fi
 
-    # Two-line prompt:
-    #  line 1: working directory
-    #  line 2: environment info and prompt
-
-    # PS1=$'\[$reset\]\[$bold\]▍\w\n▍\u • \h${PY_ENV_PS1}${GIT_BRANCH_PS1} \$\[$reset\] '
-
     # Three-line prompt:
     #   line 1: environment info
     #   line 2: working directory
     #   line 3: prompt
+    #
+    # Use unicode block characters to create a "bar" effect at the edge of the
+    # prompt.
+    #
+    # Use a unicode dot to separate the user from the hostname instead of the @
+    # sign. The @ sign doesn't work well in the prompt when using the DejaVu
+    # font, because the @ is too wide and is truncated by the next character. It
+    # works OK with other fonts, though. (See ~/.Xresources for defining the
+    # font.)
 
     PS1=$'\[$reset\]\[$bold\]\n▍\u • \h${PY_ENV_PS1}${GIT_BRANCH_PS1}\n▍\w\n▍\$\[$reset\] '
 }
