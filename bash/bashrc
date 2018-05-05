@@ -190,7 +190,8 @@ function on_prompt() {
         GIT_BRANCH_PS1=''
     fi
 
-    # Three-line prompt:
+    # Four-line prompt:
+    #   line 0: blank line
     #   line 1: environment info
     #   line 2: working directory
     #   line 3: prompt
