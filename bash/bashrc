@@ -190,14 +190,17 @@ function on_prompt() {
         GIT_BRANCH_PS1=''
     fi
 
+    # Create a horizontal bar occupying the full width of the terminal.
+
+    local ncols
+    ncols=$(tput cols)
+    HBAR=$(printf "%*s" $ncols "" | sed "s/ /═/g")
+
     # Four-line prompt:
-    #   line 0: blank line
+    #   line 0: horizontal bar
     #   line 1: environment info
     #   line 2: working directory
     #   line 3: prompt
-    #
-    # Use unicode block characters to create a "bar" effect at the edge of the
-    # prompt.
     #
     # Use a unicode dot to separate the user from the hostname instead of the @
     # sign. The @ sign doesn't work well in the prompt when using the DejaVu
@@ -206,10 +209,10 @@ function on_prompt() {
     # font.)
 
     local line0 line1 line2 line3
-    line0=$''
-    line1=$'▍\u • \h${PY_ENV_PS1}${GIT_BRANCH_PS1}'
-    line2=$'▍\w'
-    line3=$'▍\$ '
+    line0=$'$HBAR'
+    line1=$'\u • \h${PY_ENV_PS1}${GIT_BRANCH_PS1}'
+    line2=$'\w'
+    line3=$'\$ '
     PS1="\[$reset\]\[$bold\]$line0\n$line1\n$line2\n$line3\[$reset\]"
 }
 
