@@ -1,0 +1,6 @@
+## Default repo
+local({
+    repos = getOption("repos")
+    repos["CRAN"] = "http://cran.rstudio.com/"
+    options(repos=repos)
+})
