@@ -20,7 +20,7 @@ user_pref("browser.onboarding.tour.onboarding-tour-private-browsing.completed", 
 user_pref("browser.onboarding.tour.onboarding-tour-screenshots.completed", true);
 user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
 user_pref("browser.search.context.loadInBackground", true);
-user_pref("browser.search.hiddenOneOffs", "Yahoo,Bing,Amazon.com,Debian packages,DuckDuckGo,eBay,Twitter,Wikipedia (en)");
+user_pref("browser.search.hiddenOneOffs", "Startpage,Google,Yahoo,Bing,Amazon.com,Debian packages,DuckDuckGo,eBay,Twitter,Wikipedia (en)");
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.startup.homepage", "/home/rjmorris/private_html/start.html");
 user_pref("browser.startup.page", 3);
