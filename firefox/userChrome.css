@@ -19,11 +19,13 @@
   display: none !important; 
 }
 
+
 /* Clean up the address bar. */
 .autocomplete-history-dropmarker,  /* down arrow to show menu with autocomplete options */
 #pageActionButton, /* "three dots" icon to show menu with more actions */
 #pageActionSeparator,
-#star-button-box /* star icon to bookmark the current page */
+#star-button-box, /* star icon to bookmark the current page */
+#PopupAutoCompleteRichResult /* entire drop down menu with search suggestions, etc. */
 {
   display: none !important;
 }
