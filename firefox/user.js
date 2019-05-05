@@ -4,6 +4,7 @@ user_pref("browser.download.autohideButton", false);
 user_pref("browser.download.folderList", 2);
 user_pref("browser.download.useDownloadDir", false);
 user_pref("browser.formfill.enable", false);
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("browser.newtabpage.activity-stream.prerender", false);
