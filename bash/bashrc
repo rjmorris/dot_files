@@ -96,6 +96,29 @@ function command_exists() {
 
 
 #-------------------------------------------------------------------------------
+# Reset PROMPT_COMMAND
+#
+# PROMPT_COMMAND defines a command to run before displaying each new prompt.
+# Distros tend to set a default value for it. For example, the default might be
+# to change the window title to match the working directory (which I hate).
+#
+# Reset the command to a no-op to override any distro default. Using a no-op
+# instead of unsetting it allows me to append to it later without checking
+# whether it's empty or not. For example, appending to it like this:
+#
+#   PROMPT_COMMAND="${PROMPT_COMMAND}; another_command"
+#
+# would produce the value:
+#
+#   ; another_command
+#
+# if PROMPT_COMMAND were empty. Starting a command with a semicolon is a syntax
+# error in bash.
+
+PROMPT_COMMAND=:
+
+
+#-------------------------------------------------------------------------------
 # PATH section
 
 for app_dir in /usr/local/apps/*; do
@@ -147,17 +170,20 @@ shopt -s sourcepath
 
 #-------------------------------------------------------------------------------
 # Prompt section
+#
+# Define a custom prompt. The prompt itself is stored in variable PS1. Because I
+# want the prompt to be dynamic, PS1 must be updated each time the prompt is
+# displayed. This is accomplished by adding a function to PROMPT_COMMAND that
+# generates a new PS1. PROMPT_COMMAND is executed before each prompt is
+# displayed.
 
 # Define more human-readable names for formatting sequences.
-
 reset=$(tput sgr0)
 bold=$(tput bold)
 
-function on_prompt() {
+function set_custom_prompt() {
 
-    # Extract the name of the current python virtual environment, if any. By
-    # default, pyvenv simply prepends the virtual enronment name to the prompt,
-    # which won't work well with my custom prompt.
+    # Extract the name of the current python virtual environment, if any.
 
     local py_env
 
@@ -216,12 +242,7 @@ function on_prompt() {
     PS1="\[$reset\]\[$bold\]$line0\n$line1\n$line2\n$line3\[$reset\]"
 }
 
-# PROMPT_COMMAND defines a command to run before displaying each new prompt. (By
-# default, it changes the window title. I hate that behavior, so if not
-# overriding it with my own command, at least disable it.)
-
-#unset PROMPT_COMMAND
-export PROMPT_COMMAND=on_prompt
+PROMPT_COMMAND="${PROMPT_COMMAND}; set_custom_prompt"
 
 
 #-------------------------------------------------------------------------------
@@ -256,10 +277,13 @@ if [[ -d $PYENV_ROOT ]]; then
     export PYENV_ROOT
     add_to_path $PYENV_ROOT/bin
     eval "$(pyenv init -)"
-
-    # This must come after the prompt section, because it alters PROMPT_COMMAND.
     eval "$(pyenv virtualenv-init -)"
 fi
+
+# By default, pyenv adds the environment name to the prompt when the environment
+# is activated. I don't want it to do that, because I'm updating the prompt
+# myself elsewhere in this script.
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 export PIPENV_VENV_IN_PROJECT=1
 export PIPENV_COLORBLIND=1
