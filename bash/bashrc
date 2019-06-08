@@ -135,6 +135,9 @@ add_to_path ~/bin
 
 #-------------------------------------------------------------------------------
 # Bash options section
+#
+# Note: Other bash options may be set in specific topic-area sections elsewhere
+# in this file.
 
 # Autocorrect cd misspellings.
 shopt -s cdspell
@@ -142,20 +145,11 @@ shopt -s cdspell
 # Update LINES and COLUMNS after each command.
 shopt -s checkwinsize
 
-# Save all lines of a multiple-line command in the same history entry.
-shopt -s cmdhist
-
 # Enable aliases (such as alias rm='rm -i').
 shopt -s expand_aliases
 
 # Complete an FIGNORE'd file if it's the only possible completion.
 shopt -u force_fignore
-
-# Append to the history file when the shell exits.
-shopt -s histappend
-
-# Add failed commands to the history.
-shopt -s histreedit
 
 # Enable programmable completion (completion rules installed by specific
 # applications).
@@ -166,6 +160,39 @@ shopt -s promptvars
 
 # Search PATH to find sourced files.
 shopt -s sourcepath
+
+
+#-------------------------------------------------------------------------------
+# History section
+
+# Append to the global history after every command, not just when the session
+# exits. This prevents me from losing all history if a session exits uncleanly.
+PROMPT_COMMAND="${PROMPT_COMMAND}; history -a"
+
+# Save all lines of a multiple-line command in the same history entry.
+shopt -s cmdhist
+
+# Append to the global history file instead of overwriting it when the session
+# exits.
+#
+# Because I'm appending to the global history file after every command (via
+# history -a in PROMPT_COMMAND) , there will be nothing new to write when the
+# session exits. Therefore, it doesn't matter whether I append or overwrite.
+# However, I'm keeping this option to be on the safe side, in case I ever remove
+# history -a from PROMPT_COMMAND (intentionally or accidentally).
+shopt -s histappend
+
+# Add failed commands to the history.
+shopt -s histreedit
+
+# Increase the number of commands stored in the history beyond the default 500.
+# HISTSIZE is the number stored in a session's memory, and HISTFILESIZE is the
+# number stored in the global history file.
+HISTSIZE=10000
+HISTFILESIZE=10000
+
+# Don't litter the history with certain commands.
+HISTIGNORE="exit:ls:cd"
 
 
 #-------------------------------------------------------------------------------
