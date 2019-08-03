@@ -121,16 +121,16 @@ PROMPT_COMMAND=:
 #-------------------------------------------------------------------------------
 # PATH section
 
-for app_dir in /usr/local/apps/*; do
+for app_dir in /opt/*; do
     add_to_path $app_dir/bin
 done
 
-for app_dir in ~/apps/*; do
+for app_dir in ~/apps/opt/*; do
     add_to_path $app_dir/bin
 done
 
-add_to_path ~/local/bin
-add_to_path ~/bin
+add_to_path ~/apps/local/bin
+add_to_path ~/apps/bin
 
 
 #-------------------------------------------------------------------------------
@@ -299,7 +299,7 @@ alias dc=docker-compose
 #-------------------------------------------------------------------------------
 # Python section
 
-PYENV_ROOT="$HOME/apps/pyenv"
+PYENV_ROOT="$HOME/apps/opt/pyenv"
 if [[ -d $PYENV_ROOT ]]; then
     export PYENV_ROOT
     add_to_path $PYENV_ROOT/bin
