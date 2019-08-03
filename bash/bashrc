@@ -315,6 +315,13 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PIPENV_VENV_IN_PROJECT=1
 export PIPENV_COLORBLIND=1
 
+PIPX_HOME="$HOME/apps/opt/pipx"
+if [[ -d $PIPX_HOME ]]; then
+    export PIPX_HOME
+    export PIPX_BIN_DIR="$PIPX_HOME/bin"
+    add_to_path $PIPX_BIN_DIR
+fi
+
 
 #-------------------------------------------------------------------------------
 # Miscellaneous section
