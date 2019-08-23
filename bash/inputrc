@@ -1,16 +1,25 @@
 # ~/.inputrc: Set readline variables and keybindings.
 # Further settings may be found in /etc/inputrc.
-# See man readline or man bash for details.
+# See man bash for details.
 
 
 # --- Variables ---
 
+# Issue `bind -V` at a bash prompt to see the current setting for all variables.
+
+# Don't play a sound or flash the screen when completions aren't found, etc.
 set bell-style none
-#set show-all-if-ambiguous on
+
+# If the characters after the cursor match the completion, don't re-insert those
+# characters. For example, suppose the current command is "ls d^ocu", where ^
+# represents the position of cursor. Pressing Tab at this point would yield "ls
+# documents/ocu" by default. With this setting, it would yield "ls documents/".
 set skip-completed-text on
 
 
 # --- Keybindings ---
+
+# Issue `bind -P` at a bash prompt to see the current keybindings.
 
 $if term=rxvt
 
@@ -39,5 +48,14 @@ $if term=rxvt
 # history commands that start with those letters.
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+
+# Use Ctrl-right and Ctrl-left to jump by words. The default bindings are M-f
+# and M-b.
+"\eOc": forward-word
+"\eOd": backward-word
+
+# Use more Emacs-like bindings for defining and killing a region.
+Control-space: set-mark
+Control-w: kill-region
 
 $endif
