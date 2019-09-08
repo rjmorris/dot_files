@@ -1,0 +1,21 @@
+[push]
+	default = simple
+[color]
+	ui = false
+    diff = true
+    status = true
+[color "decorate"]
+    HEAD = blue
+    branch = blue
+    remoteBranch = blue
+    tag = blue
+    stash = blue
+[color "diff"]
+    commit = blue
+    frag = blue
+[color "status"]
+    changed = cyan
+    untracked = yellow
+[core]
+[include]
+    path = ./config.local
