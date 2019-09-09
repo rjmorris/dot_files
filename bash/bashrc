@@ -295,6 +295,12 @@ alias R='R --no-restore --no-save'
 alias d=docker
 alias dc=docker-compose
 
+function dr() {
+    # This one needs to be in a function so that $(pwd) will be re-evaluated on
+    # every invocation.
+    docker run --rm --user "$(id -u):$(id -g)" --volume $(pwd):/code "$@";
+}
+
 
 #-------------------------------------------------------------------------------
 # Python section
