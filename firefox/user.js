@@ -59,4 +59,5 @@ user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
 user_pref("reader.parse-on-load.enabled", false);
 user_pref("signon.rememberSignons", false);
 user_pref("toolkit.cosmeticAnimations.enabled", false);
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("ui.key.menuAccessKeyFocuses", false);
