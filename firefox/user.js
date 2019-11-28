@@ -23,7 +23,6 @@ user_pref("browser.onboarding.tour.onboarding-tour-private-browsing.completed", 
 user_pref("browser.onboarding.tour.onboarding-tour-screenshots.completed", true);
 user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
 user_pref("browser.search.context.loadInBackground", true);
-user_pref("browser.search.hiddenOneOffs", "Startpage,Google,Yahoo,Bing,Amazon.com,Debian packages,DuckDuckGo,eBay,Twitter,Wikipedia (en)");
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.startup.homepage", "about:blank");
 user_pref("browser.startup.page", 3);
@@ -31,6 +30,7 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"PersonalToolbar\":[\"personal-bookmarks\"],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"home-button\",\"urlbar-container\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"toolbar-menubar\":[\"menubar-items\",\"customizableui-special-spring6\",\"ublock0_raymondhill_net-browser-action\",\"_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-browser-action\"]},\"seen\":[\"developer-button\",\"webide-button\",\"ublock0_raymondhill_net-browser-action\",\"_7a7a4a92-a2a0-41d1-9fd7-1e92480d612d_-browser-action\"],\"dirtyAreaCache\":[\"PersonalToolbar\",\"nav-bar\",\"TabsToolbar\",\"toolbar-menubar\"],\"currentVersion\":16,\"newElementCount\":6}");
 user_pref("browser.urlbar.autocomplete.enabled", false);
+user_pref("browser.urlbar.oneOffSearches", false);
 user_pref("browser.urlbar.suggest.bookmark", false);
 user_pref("browser.urlbar.suggest.history", false);
 user_pref("browser.urlbar.suggest.openpage", false);
