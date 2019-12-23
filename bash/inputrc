@@ -10,6 +10,11 @@
 # Don't play a sound or flash the screen when completions aren't found, etc.
 set bell-style none
 
+# When pasting into the buffer, paste as a string instead of treating each
+# character as if it had been typed at the keyboard. This helps avoid
+# pasting malicious clipboard content.
+set enable-bracketed-paste on
+
 # If the characters after the cursor match the completion, don't re-insert those
 # characters. For example, suppose the current command is "ls d^ocu", where ^
 # represents the position of cursor. Pressing Tab at this point would yield "ls
