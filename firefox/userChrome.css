@@ -21,7 +21,7 @@
 
 
 /* Clean up the address bar. */
-.autocomplete-history-dropmarker,  /* down arrow to show menu with autocomplete options */
+.urlbar-history-dropmarker,  /* down arrow to show menu with autocomplete options */
 #pageActionButton, /* "three dots" icon to show menu with more actions */
 #pageActionSeparator,
 #star-button-box, /* star icon to bookmark the current page */
@@ -33,7 +33,7 @@
 
 /* Hide the placeholder text in the location and search bars.
  */
-.searchbar-textbox .textbox-input::placeholder,
-.urlbar-input::placeholder {
+.searchbar-textbox::placeholder,
+#urlbar-input::placeholder {
   color: transparent !important;  
 }
