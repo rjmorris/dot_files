@@ -24,6 +24,7 @@ user_pref("browser.onboarding.tour.onboarding-tour-screenshots.completed", true)
 user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
 user_pref("browser.search.context.loadInBackground", true);
 user_pref("browser.search.suggest.enabled", false);
+user_pref("browser.sessionstore.warnOnQuit", true);
 user_pref("browser.startup.homepage", "about:blank");
 user_pref("browser.startup.page", 3);
 user_pref("browser.tabs.closeWindowWithLastTab", false);
