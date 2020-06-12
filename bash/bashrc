@@ -139,8 +139,8 @@ add_to_path ~/apps/bin
 # Note: Other bash options may be set in specific topic-area sections elsewhere
 # in this file.
 
-# Autocorrect cd misspellings.
-shopt -s cdspell
+# Don't autocorrect cd misspellings.
+shopt -u cdspell
 
 # Update LINES and COLUMNS after each command.
 shopt -s checkwinsize
