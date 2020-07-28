@@ -19,3 +19,5 @@
 [core]
 [include]
     path = ./config.local
+[diff]
+    wsErrorHighlight = all
