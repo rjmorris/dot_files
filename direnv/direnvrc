@@ -1,0 +1,35 @@
+# use_pyenv
+#   Activate a virtual environment that was created with pyenv's virtualenv
+#   plugin. Note that this bypasses pyenv-virtualenv's own activation mechanism.
+#
+#   To use, add the following to .envrc:
+#     use pyenv my-env
+
+use_pyenv() {
+    plugin="direnv.use_pyenv"
+    if ! has pyenv; then
+        echo $plugin: pyenv is not installed
+        return 1
+    fi
+
+    if [[ $# == 0 ]]; then
+        echo $plugin: missing env_name argument
+        return 1
+    fi
+    env_name=$1
+
+    env_path="$PYENV_ROOT/versions/$env_name"
+    if [[ ! -d $env_path ]]; then
+        echo $plugin: no virtual environment found at $env_path
+        return 1
+    fi
+
+    echo $plugin: activating virtual environment at $env_path
+    source $env_path/bin/activate
+
+    # My bashrc sets VIRTUAL_ENV_DISABLE_PROMPT=1, so the activate script
+    # shouldn't try to set PS1, but unset it just in case. direnv will print
+    # a warning if it's set. See https://github.com/direnv/direnv/wiki/PS1
+    # for more discussion.
+    unset PS1
+}

@@ -7,6 +7,10 @@ ln -sf $HOME/.dot_files/X/Xmodmap .Xmodmap
 ln -sf $HOME/.dot_files/X/Xresources .Xresources
 ln -sf $HOME/.dot_files/R/Rprofile .Rprofile
 
+mkdir -p .config/direnv
+ln -sf $HOME/.dot_files/direnv/direnv.toml .config/direnv/direnv.toml
+ln -sf $HOME/.dot_files/direnv/direnvrc .config/direnv/direnvrc
+
 mkdir -p .config/git
 ln -sf $HOME/.dot_files/git/config .config/git/config
 ln -sf $HOME/.dot_files/git/ignore .config/git/ignore

@@ -1,1 +1,5 @@
+# For pyenv
 .python-version
+
+# For direnv
+.envrc

@@ -303,20 +303,50 @@ function dr() {
 
 
 #-------------------------------------------------------------------------------
+# direnv section
+
+# direnv will execute .envrc scripts when entering a directory. If the script
+# exports any environment variables, direnv will inject them into the current
+# shell. The scrips can access functions from direnv's standard library and from
+# ~/.config/direnv/direnvrc
+
+if command_exists direnv; then
+    eval "$(direnv hook bash)"
+fi
+
+
+#-------------------------------------------------------------------------------
 # Python section
 
 PYENV_ROOT="$HOME/apps/opt/pyenv"
 if [[ -d $PYENV_ROOT ]]; then
     export PYENV_ROOT
     add_to_path $PYENV_ROOT/bin
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
+
+    # According to the installation instructions for pyenv, one should add:
+    #
+    #   eval "$(pyenv init -)"
+    #
+    # here to enable shims and autocompletion. However, I don't want to use
+    # pyenv's shims, but I do want autocomplete.
+    source $PYENV_ROOT/completions/pyenv.bash
+
+    # According to the installation instructions for pyenv-virtualenv, one
+    # should add:
+    #
+    #   eval "$(pyenv virtualenv-init -)"
+    #
+    # here to enable auto-activation of virtualenvs when entering a directory.
+    # However, I'm currently using direnv for this feature.
 fi
 
-# By default, pyenv adds the environment name to the prompt when the environment
-# is activated. I don't want it to do that, because I'm updating the prompt
-# myself elsewhere in this script.
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+# By default, activating a virtual environment (via the environment's activate
+# script or via pyenv-virtualenv) adds the environment name to the prompt. I
+# don't want it to do that, because I'm updating the prompt myself elsewhere in
+# this script. Note the pyenv-virtualenv supports a
+# PYENV_VIRTUALENV_DISABLE_PROMPT variable, but VIRTUAL_ENV_DISABLE_PROMPT works
+# for both pyenv-virtualenv and the activate script.
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 export PIPENV_VENV_IN_PROJECT=1
 export PIPENV_COLORBLIND=1
