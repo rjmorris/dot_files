@@ -278,7 +278,11 @@ HISTSIZE=10000
 HISTFILESIZE=10000
 
 # Don't litter the history with certain commands.
-HISTIGNORE="exit:ls:cd"
+# (I'm leaving this here in case I change my mind again later, but after using
+# this for a while, I find that I'm often annoyed when commands aren't added to
+# the history, because it throws off the number of up-arrows required to reach
+# an earlier command.)
+#HISTIGNORE="exit:ls:cd"
 
 
 #-------------------------------------------------------------------------------
