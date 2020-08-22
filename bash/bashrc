@@ -68,21 +68,107 @@ function source_dir() {
     return 1
 }
 
-function add_to_path() {
-    local dir=$1
-
-    local after_before=$2
-    if [[ -z $after_before ]]; then
-        after_before=before
+# Add a directory to $PATH.
+function path_add() {
+    if [[ $# == 0 || $1 == "-h" || $1 == "--help" ]]; then
+        echo 'Add a directory to $PATH. By default, add to the beginning of $PATH,'
+        echo 'but do nothing if the directory is already in $PATH.'
+        echo
+        echo 'Usage:'
+        echo '  path_add [--end] [--dup=allow|remove] <dir>'
+        echo
+        echo 'Options:'
+        echo '  --end: Add the directory to the end of $PATH instead of the beginning.'
+        echo '  --dup: Add the directory to $PATH even if it is already in $PATH.'
+        echo '    =allow: Leave the existing entries untouched.'
+        echo '    =remove: Remove the existing entries first.'
+        return 0
     fi
 
-    if [[ -d $dir && ":$PATH:" != *":$dir:"* ]]; then
-        if [[ $after_before == "before" ]]; then
-            export PATH=$dir:$PATH
-        else
-            export PATH=$PATH:$dir
+    local where=beginning
+    local dup=noop
+    while [[ $1 == --* ]]; do
+        case $1 in
+            --end)
+                where=end
+                ;;
+            --dup=allow)
+                dup=allow
+                ;;
+            --dup=remove)
+                dup=remove
+                ;;
+            *)
+                path_add --help
+                return 1
+                ;;
+        esac
+        shift
+    done
+
+    local dir=$1
+    if [[ -z $dir ]]; then
+        path_add --help
+        return 1
+    fi
+
+    if in_path $dir; then
+        if [[ $dup == noop ]]; then
+            return 0
+        elif [[ $dup == remove ]]; then
+            path_rm --all $dir
         fi
     fi
+
+    if [[ $where == end ]]; then
+        export PATH=$PATH:$dir
+    else
+        export PATH=$dir:$PATH
+    fi
+}
+
+# Remove a directory from $PATH.
+function path_rm() {
+    if [[ $# == 0 || $1 == "-h" || $1 == "--help" ]]; then
+        echo 'Remove a directory from $PATH. By default, remove only the first'
+        echo 'instance if the directory appears in $PATH multiple times.'
+        echo
+        echo 'Usage:'
+        echo '  path_rm [--all] <path>'
+        echo
+        echo 'Options:'
+        echo '  --all: Remove all instances, not just the first one.'
+        return 0
+    fi
+
+    local all=0
+    if [[ $1 == --all || $1 == -a ]]; then
+        all=1
+        shift
+    fi
+
+    local dir=$1
+    if [[ -z $dir ]]; then
+        path_rm --help
+        return 1
+    fi
+
+    local working_path=:$PATH:
+    if [[ $all == 1 ]]; then
+        working_path=${working_path//:$dir:/:}
+    else
+        working_path=${working_path/:$dir:/:}
+    fi
+    working_path=${working_path%:}
+    working_path=${working_path#:}
+
+    export PATH=$working_path
+}
+
+# Succeed if a directory is found in $PATH.
+function in_path() {
+    local dir=$1
+    [[ ":$PATH:" == *":$dir:"* ]]
 }
 
 # Set the terminal's title.
@@ -122,15 +208,15 @@ PROMPT_COMMAND=:
 # PATH section
 
 for app_dir in /opt/*; do
-    add_to_path $app_dir/bin
+    path_add $app_dir/bin
 done
 
 for app_dir in ~/apps/opt/*; do
-    add_to_path $app_dir/bin
+    path_add $app_dir/bin
 done
 
-add_to_path ~/apps/local/bin
-add_to_path ~/apps/bin
+path_add ~/apps/local/bin
+path_add ~/apps/bin
 
 
 #-------------------------------------------------------------------------------
@@ -321,7 +407,7 @@ fi
 PYENV_ROOT="$HOME/apps/opt/pyenv"
 if [[ -d $PYENV_ROOT ]]; then
     export PYENV_ROOT
-    add_to_path $PYENV_ROOT/bin
+    path_add $PYENV_ROOT/bin
 
     # According to the installation instructions for pyenv, one should add:
     #
@@ -355,7 +441,7 @@ PIPX_HOME="$HOME/apps/opt/pipx"
 if [[ -d $PIPX_HOME ]]; then
     export PIPX_HOME
     export PIPX_BIN_DIR="$PIPX_HOME/bin"
-    add_to_path $PIPX_BIN_DIR
+    path_add $PIPX_BIN_DIR
 fi
 
 
