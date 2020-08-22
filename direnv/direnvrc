@@ -33,3 +33,5 @@ use_pyenv() {
     # for more discussion.
     unset PS1
 }
+
+source_env ~/.config/direnv/direnvrc.local
