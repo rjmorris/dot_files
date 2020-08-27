@@ -433,7 +433,7 @@ fi
 # By default, activating a virtual environment (via the environment's activate
 # script or via pyenv-virtualenv) adds the environment name to the prompt. I
 # don't want it to do that, because I'm updating the prompt myself elsewhere in
-# this script. Note the pyenv-virtualenv supports a
+# this script. Note that pyenv-virtualenv supports a
 # PYENV_VIRTUALENV_DISABLE_PROMPT variable, but VIRTUAL_ENV_DISABLE_PROMPT works
 # for both pyenv-virtualenv and the activate script.
 export VIRTUAL_ENV_DISABLE_PROMPT=1
