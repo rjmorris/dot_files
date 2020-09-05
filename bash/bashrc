@@ -432,6 +432,14 @@ if [[ -d $PYENV_ROOT ]]; then
     # However, I'm currently using direnv for this feature.
 fi
 
+PP_ROOT_DIR="$HOME/apps/opt/pp"
+if [[ -d $PP_ROOT_DIR ]]; then
+   export PP_ROOT_DIR
+   source "$PP_ROOT_DIR/lib/pp.bash"
+   source "$PP_ROOT_DIR/lib/completions.bash"
+   export -f pp
+fi
+
 # By default, activating a virtual environment (via the environment's activate
 # script or via pyenv-virtualenv) adds the environment name to the prompt. I
 # don't want it to do that, because I'm updating the prompt myself elsewhere in
