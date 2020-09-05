@@ -1,3 +1,7 @@
+use_py() {
+    PATH_add $(pp py bin $1)
+}
+
 # use_pyenv
 #   Activate a virtual environment that was created with pyenv's virtualenv
 #   plugin. Note that this bypasses pyenv-virtualenv's own activation mechanism.
