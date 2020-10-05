@@ -432,11 +432,11 @@ if [[ -d $PYENV_ROOT ]]; then
     # However, I'm currently using direnv for this feature.
 fi
 
-PP_ROOT_DIR="$HOME/apps/opt/pp"
-if [[ -d $PP_ROOT_DIR ]]; then
-   export PP_ROOT_DIR
-   source "$PP_ROOT_DIR/lib/pp.bash"
-   source "$PP_ROOT_DIR/lib/completions.bash"
+PP_ROOT="$HOME/apps/opt/pp"
+if [[ -d $PP_ROOT ]]; then
+   export PP_ROOT
+   source "$PP_ROOT/lib/pp.bash"
+   source "$PP_ROOT/lib/completions.bash"
    export -f pp
 fi
 
