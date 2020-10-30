@@ -38,4 +38,7 @@ use_pyenv() {
     unset PS1
 }
 
-source_env ~/.config/direnv/direnvrc.local
+rc_local=~/.config/direnv/direnvrc.local
+if [[ -f $rc_local ]]; then
+   source_env "$rc_local"
+fi
