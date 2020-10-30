@@ -1,5 +1,20 @@
 use_py() {
-    PATH_add $(pp py bin $1)
+    # Add a Python version (not virtual environment) to the PATH. The Python
+    # version is assumed to have been installed by pp.
+
+    plugin="direnv.use_py"
+    if ! has pp; then
+        echo $plugin: pp is not installed
+        return 1
+    fi
+
+    if [[ $# == 0 ]]; then
+        echo "$plugin: missing version argument: use py \<version\>"
+        return 1
+    fi
+
+    version=$1
+    PP_VERBOSE=1 PATH_add $(pp py bin $version)
 }
 
 
