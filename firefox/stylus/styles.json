@@ -1,168 +1,290 @@
 [
-	{
-		"installDate": 1515502496537,
-		"enabled": true,
-		"updateUrl": "",
-		"md5Url": null,
-		"url": null,
-		"originalMd5": null,
-		"sections": [
-			{
-				"code": "body {\n    font-size: 100% !important;\n    font-family: sans-serif !important;\n  }\n\n  * {\n    line-height: 1.4em !important;\n  }\n\n  .story {\n    font-size: 100% !important;\n  }\n\n  #content-main .more-story-highlight p {\n    font-size: 100% !important;\n  }\n\n  #story-assets .blk10 {\n    font-size: 100% !important;\n  }\n\n  #content-center .story-image {\n    font-size: 100% !important;\n  }\n\n  div.promo-box .body {\n    font-size: 100% !important;\n  }\n\n  div#mi_story_embedded .story_assets #more_assets {\n    font-size: 100% !important;\n  }\n  \n  #pressplusOverlay,\n  #ppUI,\n  #newsletter-signUpWidget,\n  #story-related,\n  .story-readmorelink,\n  #story-cta-widget,\n  #zerg-target,\n  .embed-media,\n  .ng_digital,\n  .s2nPlayer,\n  .s2nFriendlyFrame,\n  .tout-sdk\n  {\n    display: none !important;\n  }",
-				"urls": [],
-				"urlPrefixes": [],
-				"domains": [
-					"www.newsobserver.com"
-				],
-				"regexps": []
-			}
-		],
-		"name": "N&O",
-		"id": 1
-	},
-	{
-		"installDate": 1515502496544,
-		"enabled": true,
-		"updateUrl": "",
-		"md5Url": null,
-		"url": null,
-		"originalMd5": null,
-		"sections": [
-			{
-				"code": "body {\n    font-size: 100% !important;\n  }\n  #leftbar, #sidebar {\n    display: none !important;\n  }\n  .post {\n    width: 45em;\n  }\n  .twtr-widget {\n    display: none !important;\n  }\n  .followus_r {\n    display: none !important;\n  }\n  .wp_followme_c2 {\n    display: none !important;\n  }",
-				"urls": [],
-				"urlPrefixes": [],
-				"domains": [
-					"uniwatchblog.com"
-				],
-				"regexps": []
-			}
-		],
-		"name": "Uni Watch",
-		"id": 4
-	},
-	{
-		"installDate": 1515502496554,
-		"enabled": false,
-		"updateUrl": "",
-		"md5Url": null,
-		"url": null,
-		"originalMd5": null,
-		"sections": [
-			{
-				"code": "div#globalWrapper {\n    font-size: 100% !important;\n  }\n  #bodyContent {\n    font-size: 100% !important;\n  }\n  .mw-headline {\n    font-family: sans-serif !important;\n  }",
-				"urls": [],
-				"urlPrefixes": [],
-				"domains": [
-					"wikipedia.org"
-				],
-				"regexps": []
-			}
-		],
-		"name": "Wikipedia",
-		"id": 5
-	},
-	{
-		"installDate": 1515502496557,
-		"enabled": false,
-		"updateUrl": "",
-		"md5Url": null,
-		"url": null,
-		"originalMd5": null,
-		"sections": [
-			{
-				"code": "* {\n    font-family: sans-serif !important;\n  }\n\n  .story-heading {\n    font-style: normal !important;\n    font-size: 1.2rem !important;\n    line-height: 1.3rem !important;\n  }\n  .story.theme-summary .summary {\n    font-size: 0.875rem !important;\n  }",
-				"urls": [],
-				"urlPrefixes": [],
-				"domains": [
-					"nytimes.com"
-				],
-				"regexps": []
-			}
-		],
-		"name": "NY Times",
-		"id": 8
-	},
-	{
-		"installDate": 1515502496561,
-		"enabled": true,
-		"updateUrl": "",
-		"md5Url": null,
-		"url": null,
-		"originalMd5": null,
-		"sections": [
-			{
-				"code": ".left-post-container .post-content-area {\n    font-family: sans-serif !important;\n    font-size: 100% !important;\n  }\n  #main-container {\n    min-width: 600px !important;\n  }\n  #sidebar {\n    display: none;\n  }",
-				"urls": [],
-				"urlPrefixes": [],
-				"domains": [
-					"avsforum.com"
-				],
-				"regexps": []
-			}
-		],
-		"name": "AVS Forum",
-		"id": 16
-	},
-	{
-		"installDate": 1515502496569,
-		"enabled": true,
-		"updateUrl": "",
-		"md5Url": null,
-		"url": null,
-		"originalMd5": null,
-		"sections": [
-			{
-				"code": "td, th, p, li {\n    font-size: 100% !important;\n    font-family: sans-serif !important;\n  }",
-				"urls": [],
-				"urlPrefixes": [],
-				"domains": [
-					"city-data.com"
-				],
-				"regexps": []
-			}
-		],
-		"name": "city-data",
-		"id": 17
-	},
-	{
-		"installDate": 1515502496571,
-		"enabled": true,
-		"updateUrl": "",
-		"md5Url": null,
-		"url": null,
-		"originalMd5": null,
-		"sections": [
-			{
-				"code": "body {\n    font: normal 16px sans-serif;\n  }\n  .pb-f-article-article-body.full article > p {\n    font-size: 100% !important;\n  }",
-				"urls": [],
-				"urlPrefixes": [],
-				"domains": [
-					"washingtonpost.com"
-				],
-				"regexps": []
-			}
-		],
-		"name": "Washington Post",
-		"id": 19
-	},
-	{
-		"installDate": 1542340892687,
-		"enabled": true,
-		"updateUrl": null,
-		"md5Url": null,
-		"url": null,
-		"originalMd5": null,
-		"name": "Reuters",
-		"sections": [
-			{
-				"code": "#content > div,\n.CanvasAd_container,\n.CanvasAd_container + div,\n.video {\n    display: none !important;\n}\n\na, .story-title {\n    font-family: sans-serif !important;\n}\n\n/* This is the page header that appears when you scroll up in story. */\n.RecircRibbon_container {\n    display: none !important;\n}",
-				"domains": [
-					"reuters.com"
-				]
-			}
-		],
-		"id": 20,
-		"updateDate": 1574772722377
-	}
+  {
+    "settings": {
+      "openEditInWindow": true,
+      "openEditInWindow.popup": false,
+      "windowPosition": {
+        "left": 0,
+        "top": 52,
+        "width": 1021,
+        "height": 805
+      },
+      "show-badge": true,
+      "disableAll": false,
+      "exposeIframes": false,
+      "newStyleAsUsercss": false,
+      "styleViaXhr": false,
+      "patchCsp": false,
+      "config.autosave": true,
+      "popup.breadcrumbs": true,
+      "popup.breadcrumbs.usePath": false,
+      "popup.enabledFirst": true,
+      "popup.stylesFirst": true,
+      "popup.autoResort": false,
+      "popup.borders": false,
+      "popup.findStylesInline": true,
+      "manage.onlyEnabled": false,
+      "manage.onlyLocal": false,
+      "manage.onlyUsercss": false,
+      "manage.onlyEnabled.invert": false,
+      "manage.onlyLocal.invert": false,
+      "manage.onlyUsercss.invert": false,
+      "manage.actions.expanded": true,
+      "manage.backup.expanded": true,
+      "manage.filters.expanded": true,
+      "manage.newUI": true,
+      "manage.newUI.favicons": false,
+      "manage.newUI.faviconsGray": true,
+      "manage.newUI.targets": 3,
+      "manage.newUI.sort": "title,asc",
+      "editor.options": {},
+      "editor.toc.expanded": true,
+      "editor.options.expanded": true,
+      "editor.lint.expanded": true,
+      "editor.lineWrapping": true,
+      "editor.smartIndent": true,
+      "editor.indentWithTabs": false,
+      "editor.tabSize": 4,
+      "editor.keyMap": "default",
+      "editor.theme": "default",
+      "editor.beautify": {
+        "selector_separator_newline": true,
+        "newline_before_open_brace": false,
+        "newline_after_open_brace": true,
+        "newline_between_properties": true,
+        "newline_before_close_brace": true,
+        "newline_between_rules": false,
+        "end_with_newline": false,
+        "indent_conditional": true
+      },
+      "editor.beautify.hotkey": "",
+      "editor.lintDelay": 300,
+      "editor.linter": "csslint",
+      "editor.lintReportDelay": 500,
+      "editor.matchHighlight": "token",
+      "editor.autoCloseBrackets": false,
+      "editor.autocompleteOnTyping": false,
+      "editor.contextDelete": false,
+      "editor.selectByTokens": true,
+      "editor.appliesToLineWidget": true,
+      "editor.livePreview": true,
+      "editor.colorpicker": true,
+      "editor.colorpicker.hexUppercase": false,
+      "editor.colorpicker.hotkey": "",
+      "editor.colorpicker.color": "",
+      "editor.colorpicker.maxHeight": 300,
+      "hotkey._execute_browser_action": "",
+      "hotkey.openManage": "",
+      "hotkey.styleDisableAll": "",
+      "sync.enabled": "none",
+      "iconset": 0,
+      "badgeDisabled": "#8B0000",
+      "badgeNormal": "#006666",
+      "popupWidth": 246,
+      "updateInterval": 24
+    }
+  },
+  {
+    "installDate": 1515502496537,
+    "enabled": true,
+    "updateUrl": "",
+    "md5Url": null,
+    "url": null,
+    "originalMd5": null,
+    "sections": [
+      {
+        "code": "body {\n    font-size: 100% !important;\n    font-family: sans-serif !important;\n  }\n\n  * {\n    line-height: 1.4em !important;\n  }\n\n  .story {\n    font-size: 100% !important;\n  }\n\n  #content-main .more-story-highlight p {\n    font-size: 100% !important;\n  }\n\n  #story-assets .blk10 {\n    font-size: 100% !important;\n  }\n\n  #content-center .story-image {\n    font-size: 100% !important;\n  }\n\n  div.promo-box .body {\n    font-size: 100% !important;\n  }\n\n  div#mi_story_embedded .story_assets #more_assets {\n    font-size: 100% !important;\n  }\n  \n  #pressplusOverlay,\n  #ppUI,\n  #newsletter-signUpWidget,\n  #story-related,\n  .story-readmorelink,\n  #story-cta-widget,\n  #zerg-target,\n  .embed-media,\n  .ng_digital,\n  .s2nPlayer,\n  .s2nFriendlyFrame,\n  .tout-sdk\n  {\n    display: none !important;\n  }",
+        "urls": [],
+        "urlPrefixes": [],
+        "domains": [
+          "www.newsobserver.com"
+        ],
+        "regexps": []
+      }
+    ],
+    "name": "N&O",
+    "id": 1,
+    "_id": "b6759ece-e041-4d84-8e28-4289df16e347",
+    "_rev": 1583278076194
+  },
+  {
+    "installDate": 1515502496544,
+    "enabled": true,
+    "updateUrl": "",
+    "md5Url": null,
+    "url": null,
+    "originalMd5": null,
+    "sections": [
+      {
+        "code": "body {\n    font-size: 100% !important;\n  }\n  #leftbar, #sidebar {\n    display: none !important;\n  }\n  .post {\n    width: 45em;\n  }\n  .twtr-widget {\n    display: none !important;\n  }\n  .followus_r {\n    display: none !important;\n  }\n  .wp_followme_c2 {\n    display: none !important;\n  }",
+        "urls": [],
+        "urlPrefixes": [],
+        "domains": [
+          "uniwatchblog.com"
+        ],
+        "regexps": []
+      }
+    ],
+    "name": "Uni Watch",
+    "id": 4,
+    "_id": "ff1ccbfd-15b6-489e-8184-7efe4ed33557",
+    "_rev": 1583278076194
+  },
+  {
+    "installDate": 1515502496554,
+    "enabled": false,
+    "updateUrl": "",
+    "md5Url": null,
+    "url": null,
+    "originalMd5": null,
+    "sections": [
+      {
+        "code": "div#globalWrapper {\n    font-size: 100% !important;\n  }\n  #bodyContent {\n    font-size: 100% !important;\n  }\n  .mw-headline {\n    font-family: sans-serif !important;\n  }",
+        "urls": [],
+        "urlPrefixes": [],
+        "domains": [
+          "wikipedia.org"
+        ],
+        "regexps": []
+      }
+    ],
+    "name": "Wikipedia",
+    "id": 5,
+    "_id": "50ef3ee1-4281-4b84-b750-03bde6580ccc",
+    "_rev": 1583278076194
+  },
+  {
+    "installDate": 1515502496557,
+    "enabled": false,
+    "updateUrl": "",
+    "md5Url": null,
+    "url": null,
+    "originalMd5": null,
+    "sections": [
+      {
+        "code": "* {\n    font-family: sans-serif !important;\n  }\n\n  .story-heading {\n    font-style: normal !important;\n    font-size: 1.2rem !important;\n    line-height: 1.3rem !important;\n  }\n  .story.theme-summary .summary {\n    font-size: 0.875rem !important;\n  }",
+        "urls": [],
+        "urlPrefixes": [],
+        "domains": [
+          "nytimes.com"
+        ],
+        "regexps": []
+      }
+    ],
+    "name": "NY Times",
+    "id": 8,
+    "_id": "e52dbbf1-ed9a-417c-ae8c-b35ea022baf1",
+    "_rev": 1583278076195
+  },
+  {
+    "installDate": 1515502496561,
+    "enabled": true,
+    "updateUrl": "",
+    "md5Url": null,
+    "url": null,
+    "originalMd5": null,
+    "sections": [
+      {
+        "code": ".left-post-container .post-content-area {\n    font-family: sans-serif !important;\n    font-size: 100% !important;\n  }\n  #main-container {\n    min-width: 600px !important;\n  }\n  #sidebar {\n    display: none;\n  }",
+        "urls": [],
+        "urlPrefixes": [],
+        "domains": [
+          "avsforum.com"
+        ],
+        "regexps": []
+      }
+    ],
+    "name": "AVS Forum",
+    "id": 16,
+    "_id": "16f80f56-590f-4d4e-ab25-307b8726f77a",
+    "_rev": 1583278076195
+  },
+  {
+    "installDate": 1515502496569,
+    "enabled": true,
+    "updateUrl": "",
+    "md5Url": null,
+    "url": null,
+    "originalMd5": null,
+    "sections": [
+      {
+        "code": "td, th, p, li {\n    font-size: 100% !important;\n    font-family: sans-serif !important;\n  }",
+        "urls": [],
+        "urlPrefixes": [],
+        "domains": [
+          "city-data.com"
+        ],
+        "regexps": []
+      }
+    ],
+    "name": "city-data",
+    "id": 17,
+    "_id": "9be5c213-35cb-4a1e-943b-75fefcfed745",
+    "_rev": 1583278076195
+  },
+  {
+    "installDate": 1515502496571,
+    "enabled": true,
+    "updateUrl": "",
+    "md5Url": null,
+    "url": null,
+    "originalMd5": null,
+    "sections": [
+      {
+        "code": "body {\n    font: normal 16px sans-serif;\n  }\n  .pb-f-article-article-body.full article > p {\n    font-size: 100% !important;\n  }",
+        "urls": [],
+        "urlPrefixes": [],
+        "domains": [
+          "washingtonpost.com"
+        ],
+        "regexps": []
+      }
+    ],
+    "name": "Washington Post",
+    "id": 19,
+    "_id": "1495e4b7-6ca7-44d5-85f6-211a905cf119",
+    "_rev": 1583278076195
+  },
+  {
+    "installDate": 1542340892687,
+    "enabled": true,
+    "updateUrl": null,
+    "md5Url": null,
+    "url": null,
+    "originalMd5": null,
+    "name": "Reuters",
+    "sections": [
+      {
+        "code": "#content > div,\n.CanvasAd_container,\n.CanvasAd_container + div,\n.video {\n    display: none !important;\n}\n\na, .story-title {\n    font-family: sans-serif !important;\n}\n\n/* This is the page header that appears when you scroll up in story. */\n.RecircRibbon_container {\n    display: none !important;\n}\n\n#hpvideomodule {\n    display: none !important;\n}\n",
+        "domains": [
+          "reuters.com"
+        ]
+      }
+    ],
+    "id": 20,
+    "updateDate": 1603731872420,
+    "_id": "64c01890-52e2-4fe9-9b2f-a022885b6d2c",
+    "_rev": 1603731872420
+  },
+  {
+    "enabled": true,
+    "updateUrl": null,
+    "md5Url": null,
+    "url": null,
+    "originalMd5": null,
+    "installDate": 1613013558905,
+    "name": "Hacker News",
+    "sections": [
+      {
+        "code": "/* On a story page, usually there's just a link\n * to the article at the top, followed by all the\n * comments. Sometimes the submitter includes\n * some text about the article, which appears\n * between the link and the comments. That text\n * is light gray by default. This makes it black.\n */\ntd, .fatitem {\n      color: #000000;\n}\n",
+        "domains": [
+          "news.ycombinator.com"
+        ]
+      }
+    ],
+    "updateDate": 1613014045346,
+    "_id": "561d13f0-d664-4a28-ac90-17335ac98638",
+    "_rev": 1613014045347,
+    "id": 21
+  }
 ]
