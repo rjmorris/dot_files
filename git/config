@@ -1,5 +1,11 @@
 [push]
     default = simple
+[pull]
+    # Abort the pull if it can't be performed by a fast-forward. Run one of:
+    #   git pull --merge
+    #   git pull --rebase
+    # to explicitly choose how to handle this situation.
+    ff = only
 [color]
     ui = false
     diff = true
