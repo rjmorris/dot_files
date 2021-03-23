@@ -3,3 +3,6 @@
 
 # For direnv
 .envrc
+
+# For scratch work
+joey-scratch/
