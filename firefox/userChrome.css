@@ -1,14 +1,28 @@
-/* Clean up the search bar. */
-.search-go-button  /* Magnifying Glass button */
-{
-  display: none !important; 
-}
+/* See https://www.reddit.com/r/FirefoxCSS for lots of examples of rules that
+ * can be placed in this file.
+ *
+ * Also see https://www.reddit.com/r/FirefoxCSS/comments/73dvty/tutorial_how_to_create_and_livedebug_userchromecss/
+ * for how to debug these rules and figure them out for yourself. In short:
+ *
+ * - Enable remote debugging in the Developer Tools.
+ * - Open the Browser Toolbox and allow the remote debugging session.
+ * - Open userChrome.css in the Style Editor. You can edit this file and see the
+ *   changes applied immediately in the browser.
+ * - Use the Inspector to see all browser chrome's DOM. This will inform the
+ *   rules to add to userChrome.css.
+ * - There's a setting to disable auto-hiding of popup elements. Using this will
+ *   make it easier to find popup elements like the URL bar dropdown window in
+ *   the DOM. The setting can be found in the three-dots menu in the upper right
+ *   of the Browser Toolbox.
+ */
 
 
-/* Clean up the Bookmarks menu */
+
+/**************************************************
+ * Bookmarks menu
+ */
+
 #organizeBookmarksSeparator,
-#menu_pocket,
-#menu_pocketSeparator,
 #subscribeToPageMenuitem,
 #menu_bookmarkAllTabs,
 #bookmarksToolbarFolderMenu,
@@ -16,24 +30,143 @@
 #menu_recentBookmarks,
 #menu_unsortedBookmarks
 {
-  display: none !important; 
+    display: none !important;
 }
 
 
-/* Clean up the address bar. */
-.urlbar-history-dropmarker,  /* down arrow to show menu with autocomplete options */
-#pageActionButton, /* "three dots" icon to show menu with more actions */
-#pageActionSeparator,
-#star-button-box, /* star icon to bookmark the current page */
-#urlbar-results /* entire drop down menu with search suggestions, etc. */
-{
-  display: none !important;
-}
-
-
-/* Hide the placeholder text in the location and search bars.
+/**************************************************
+ * Search bar
  */
-.searchbar-textbox::placeholder,
+
+/* Hide the magnifying glass button that appears on the left end of the text
+ * field. The button provided padding for the text field, so after removing
+ * the button we need to add some padding back.
+ */
+.searchbar-search-button {
+    display: none !important;
+}
+.searchbar-textbox {
+    padding-left: 0.5rem !important;
+}
+
+/* If I decide to keep the magnifying glass, at least hide the overlay that
+ * indicates a search engine is available on the current page. I find the
+ * overlay distracting, and I don't care about search engines on every random
+ * page. This has no effect as long as the magnifying glass is hidden.
+ */
+.searchbar-search-icon-overlay {
+    display: none !important;
+}
+
+/* Hide the right arrow that appears on the right end of the text field. You can
+ * click this arrow to initiate the search, so it has the same effect as pressing
+ * Enter. The button provided padding for the text field, so after removing the
+ * button we need to add some padding back.
+ */
+.search-go-container {
+    display: none !important;
+}
+.searchbar-textbox {
+    padding-right: 0.5rem !important;
+}
+
+/* Hide the placeholder text ("Search", for example).
+ */
+.searchbar-textbox::placeholder {
+    color: transparent !important;
+}
+
+/* Hide the entire dropdown containing auto-complete and search engine
+ * suggestions.
+ */
+#PopupSearchAutoComplete {
+    display: none !important;
+}
+
+
+/**************************************************
+ * URL bar
+ *   AKA address bar, omni bar, awesome bar, mega bar
+ */
+
+/* Hide the right arrow that appears on the right end of the text field. You can
+ * click this arrow to load the URL, so it has the same effect as pressing
+ * Enter.
+ */
+#urlbar-go-button /* right arrow to go to URL (same effect as pressing enter) */
+{
+    display: none !important;
+}
+
+/* Hide the entire set of buttons that appear at the end of the URL. Note that
+ * the "Go" icon doesn't appear within this container, so it needs to be hidden
+ * separately, which is done above. If a button comes along that you want to
+ * show, remove this rule and keep the rule below that hides buttons
+ * individually.
+ */
+#page-action-buttons {
+    display: none !important;
+}
+
+/* Hide individual buttons that appear at the end of the URL. These have no
+ * effect as long as we're hiding the entire set of buttons above. I'd also want
+ * to hide the Pocket and Reader icons, but I've disabled those features
+ * elsewhere, so their buttons don't show up anyway.
+ */
+#pageActionButton, /* "three dots" icon to show menu with more actions */
+#pageActionSeparator, /* separator before "three dots" icon */
+#star-button-box, /* star icon to bookmark the current page */
+#urlbar-zoom-button /* zoom-level indicator (and animation!) */
+{
+    display: none !important;
+}
+
+/* Hide the placeholder text ("Search with Google or enter address", for
+ * example).
+ */
 #urlbar-input::placeholder {
-  color: transparent !important;  
+    color: transparent !important;
+}
+
+/* Disable the ridiculous behavior where the URL bar expands when it's focused.
+ *
+ * I got these settings from https://www.userchrome.org/megabar-styling-firefox-address-bar.html
+ * The style builder on that page includes a lot of choices that aren't relevant
+ * to me, because I'm hiding the entire dropdown menu, so I didn't copy all the
+ * generated style rules.
+ */
+/* Set variable values */
+:root {
+    /* Number of pixels of enlargement when URL bar is focused */
+    --mbarstyler-popout-pixels: 0px; /* [0px - 7px] */
+}
+/* Compute new position, width, and padding */
+#urlbar[breakout][breakout-extend] {
+    top: calc(5px - var(--mbarstyler-popout-pixels)) !important;
+    left: calc(0px - var(--mbarstyler-popout-pixels)) !important;
+    width: calc(100% + (2 * var(--mbarstyler-popout-pixels))) !important;
+    padding: var(--mbarstyler-popout-pixels) !important;
+}
+[uidensity="compact"] #urlbar[breakout][breakout-extend] {
+    top: calc(3px - var(--mbarstyler-popout-pixels)) !important;
+}
+/* Prevent shift of URL bar contents */
+#urlbar[breakout][breakout-extend] > #urlbar-input-container {
+    height: var(--urlbar-height) !important;
+    padding: 0 !important;
+}
+/* Do not animate */
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+    animation: none !important;;
+}
+/* Remove shadows */
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+    box-shadow: none !important;
+}
+
+/* Hide the entire dropdown containing auto-complete and search engine
+ * suggestions.
+ */
+.urlbarView {
+    display: none !important;
 }

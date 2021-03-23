@@ -413,23 +413,6 @@ fi
 PYENV_ROOT="$HOME/apps/opt/pyenv"
 if [[ -d $PYENV_ROOT ]]; then
     export PYENV_ROOT
-    path_add $PYENV_ROOT/bin
-
-    # According to the installation instructions for pyenv, one should add:
-    #
-    #   eval "$(pyenv init -)"
-    #
-    # here to enable shims and autocompletion. However, I don't want to use
-    # pyenv's shims, but I do want autocomplete.
-    source $PYENV_ROOT/completions/pyenv.bash
-
-    # According to the installation instructions for pyenv-virtualenv, one
-    # should add:
-    #
-    #   eval "$(pyenv virtualenv-init -)"
-    #
-    # here to enable auto-activation of virtualenvs when entering a directory.
-    # However, I'm currently using direnv for this feature.
 fi
 
 PP_ROOT="$HOME/apps/opt/pp"
@@ -440,22 +423,15 @@ if [[ -d $PP_ROOT ]]; then
    export -f pp
 fi
 
-# By default, activating a virtual environment (via the environment's activate
-# script or via pyenv-virtualenv) adds the environment name to the prompt. I
-# don't want it to do that, because I'm updating the prompt myself elsewhere in
-# this script. Note that pyenv-virtualenv supports a
-# PYENV_VIRTUALENV_DISABLE_PROMPT variable, but VIRTUAL_ENV_DISABLE_PROMPT works
-# for both pyenv-virtualenv and the activate script.
+# By default, activating a virtual environment adds the environment name to the
+# prompt. I don't want it to do that, because I'm updating the prompt myself
+# elsewhere in this script.
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-
-export PIPENV_VENV_IN_PROJECT=1
-export PIPENV_COLORBLIND=1
 
 PIPX_HOME="$HOME/apps/opt/pipx"
 if [[ -d $PIPX_HOME ]]; then
     export PIPX_HOME
     export PIPX_BIN_DIR="$PIPX_HOME/bin"
-    path_add $PIPX_BIN_DIR
 fi
 
 
