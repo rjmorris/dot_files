@@ -436,6 +436,16 @@ fi
 
 
 #-------------------------------------------------------------------------------
+# Node.js section
+
+NVS_HOME="$HOME/apps/opt/nvs"
+if [[ -d $NVS_HOME ]]; then
+   export NVS_HOME
+   source "$NVS_HOME/nvs.sh"
+fi
+
+
+#-------------------------------------------------------------------------------
 # Miscellaneous section
 
 # 027 is more secure in a multi-user environment but is more trouble than it's
