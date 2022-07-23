@@ -16,4 +16,4 @@ ln -sf $HOME/.dot_files/git/config .config/git/config
 ln -sf $HOME/.dot_files/git/ignore .config/git/ignore
 
 mkdir -p .config/gtk-3.0
-ln -sf $HOME/.dot_files/gtk/settings.ini .config/gtk/settings.ini
+ln -sf $HOME/.dot_files/gtk/settings.ini .config/gtk-3.0/settings.ini
