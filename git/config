@@ -25,6 +25,7 @@
     changed = cyan
     untracked = yellow
 [core]
+    editor = emacs
 [include]
     path = ./config.local
 [diff]
