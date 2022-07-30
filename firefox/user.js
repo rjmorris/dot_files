@@ -105,8 +105,7 @@ user_pref("extensions.pocket.enabled", false);
 user_pref("extensions.screenshots.disabled", true);
 
 // Don't show a warning when visiting about:config
-// TODO: Change to browser.aboutConfig.showWarning
-user_pref("general.warnOnAboutConfig", false);
+user_pref("browser.aboutConfig.showWarning", false);
 
 // General > Language > Check your spelling as you type
 user_pref("layout.spellcheckDefault", 0);
