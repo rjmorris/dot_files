@@ -52,9 +52,6 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 // Home > Firefox Home Content > Recommended by Pocket
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 
-// Don't fetch the content on the Firefox Home screen before I click on a URL.
-user_pref("browser.newtabpage.activity-stream.prerender", false);
-
 // Home > Firefox Home Content > Web Search
 user_pref("browser.newtabpage.activity-stream.showSearch", false);
 
@@ -160,8 +157,3 @@ user_pref("signon.rememberSignons", false);
 
 // Apply customizations found in [profile]/chrome/userChrome.css
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-
-// Don't show the hidden menu bar when pressing the Alt key. (I don't hide my
-// menu bar, so this setting shouldn't matter. I'm not sure why I ever set it in
-// the first place.)
-user_pref("ui.key.menuAccessKeyFocuses", false);
