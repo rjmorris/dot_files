@@ -50,6 +50,9 @@ user_pref("network.trr.mode", 5);
 // Home > New Windows and Tabs > Homepage and new windows
 user_pref("browser.startup.homepage", "about:blank");
 
+// Home > New Windows and Tabs > New tabs: Blank page
+user_pref("browser.newtabpage.enabled", false);
+
 // Home > Firefox Home Content > Web Search
 user_pref("browser.newtabpage.activity-stream.showSearch", false);
 
@@ -98,6 +101,18 @@ user_pref("browser.urlbar.suggest.bookmark", false);
 // Privacy & Security > Address Bar - Firefox Suggest > Open tabs
 user_pref("browser.urlbar.suggest.openpage", false);
 
+// Privacy & Security > Address Bar - Firefox Suggest > Shortcuts
+user_pref("browser.urlbar.suggest.topsites", false);
+
+// Privacy & Security > Address Bar - Firefox Suggest > Search engines
+user_pref("browser.urlbar.suggest.engines", false);
+
+// Privacy & Security > Address Bar - Firefox Suggest > Suggestions from the web
+user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
+
+// Privacy & Security > Address Bar - Firefox Suggest > Suggestions from sponsors
+user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+
 // Privacy & Security > Permissions > Location > Block new requests asking to access your location
 user_pref("permissions.default.geo", 2);
 
@@ -112,6 +127,15 @@ user_pref("permissions.default.desktop-notification", 2);
 
 // Privacy & Security > Permissions > Autoplay > Default for all websites: Block audio and video
 user_pref("media.autoplay.default", 5);
+
+// Privacy & Security > Permissions > Virtual Reality > Block new requests asking to access your virtual reality devices
+user_pref("permissions.default.xr", 2);
+
+// Privacy & Security > Firefox Data Collection and Use > Allow Firefox to send technical and interaction data to Mozilla
+user_pref("datareporting.healthreport.uploadEnabled", false);
+
+// Privacy & Security > Firefox Data Collection and Use > Allow Firefox to make personalized extension recommendations
+user_pref("browser.discovery.enabled", false);
 
 // Privacy & Security > Firefox Data Collection and Use > Allow Firefox to install and run studies
 user_pref("app.shield.optoutstudies.enabled", false);
@@ -140,12 +164,22 @@ user_pref("browser.download.autohideButton", false);
 // investigation may be warranted here.)
 user_pref("browser.download.folderList", 2);
 
+// I'm not exactly sure what this one controls, but I don't want any speculative
+// connections. I think "places" here is referring to URLs stored in a desktop
+// environment's Places menu.
+user_pref("browser.places.speculativeConnect.enabled", false);
+
 // When searching from the context menu (right-click text, choose "Search Google
 // for ...), don't activate the tab where the search is run.
 user_pref("browser.search.context.loadInBackground", true);
 
 // Don't close the window when the last tab is closed.
 user_pref("browser.tabs.closeWindowWithLastTab", false);
+
+// Don't preload autocompleted URLs in the address bar. (I've done my best to
+// disable autocompleting URLs, but I really don't want this preloading, so
+// explicitly disable it anyway just to be sure.)
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
 // Don't hide http:// in URLs. (Note that this doesn't apply to https://, only http://.)
 user_pref("browser.urlbar.trimURLs", false);
