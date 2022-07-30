@@ -59,7 +59,7 @@ user_pref("browser.newtabpage.activity-stream.prerender", false);
 user_pref("browser.newtabpage.activity-stream.showSearch", false);
 
 // Home > Firefox Home Content > Shortcuts
-user_pref("browser.newtabpage.activity-stream.showTopSites", false);
+user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 
 // Home > Firefox Home Content > Snippets
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
