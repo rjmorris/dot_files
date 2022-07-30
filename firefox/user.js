@@ -26,6 +26,12 @@ user_pref("layout.spellcheckDefault", 0);
 // General > Downloads > Always ask you where to save files
 user_pref("browser.download.useDownloadDir", false);
 
+// General > Browsing > Use autoscrolling
+// Autoscrolling lets you click the middle mouse button to enter autoscroll
+// mode, then scroll by moving the mouse up and down. However, I use the middle
+// mouse button to paste URLs. I don't want it to autoscroll.
+user_pref("general.autoScroll", false);
+
 // General > Browsing > Recommend extensions as you browse
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 
