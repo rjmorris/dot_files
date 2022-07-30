@@ -36,7 +36,7 @@ user_pref("browser.urlbar.suggest.bookmark", false);
 user_pref("browser.urlbar.suggest.history", false);
 user_pref("browser.urlbar.suggest.openpage", false);
 user_pref("browser.urlbar.trimURLs", false);
-user_pref("dom.ipc.processCount, 4);
+user_pref("dom.ipc.processCount", 4);
 user_pref("extensions.formautofill.available", "off");
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
