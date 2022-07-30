@@ -38,6 +38,15 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", fa
 // General > Browsing > Recommend features as you browse
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 
+// General > Network Settings > Enable DNS over HTTPS (disabled)
+// I've found that DNS over HTTPS breaks too many sites. Check back again in the
+// future and consider re-enabling it.
+user_pref("doh-rollout.mode", 0);
+user_pref("doh-rollout.enabled", false);
+user_pref("doh-rollout.self-enabled", false);
+user_pref("doh-rollout.disable-heuristics", true);
+user_pref("network.trr.mode", 5);
+
 // Home > New Windows and Tabs > Homepage and new windows
 user_pref("browser.startup.homepage", "about:blank");
 
