@@ -152,6 +152,13 @@ user_pref("browser.discovery.enabled", false);
 // Privacy & Security > Firefox Data Collection and Use > Allow Firefox to install and run studies
 user_pref("app.shield.optoutstudies.enabled", false);
 
+// Privacy & Security > Security > Deceptive Content and Dangerous Software Protection
+user_pref("browser.safebrowsing.downloads.enabled", false);
+user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
+user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
+user_pref("browser.safebrowsing.malware.enabled", false);
+user_pref("browser.safebrowsing.phishing.enabled", false);
+
 
 //------------------------------------------------------------------------------
 // Preferences that aren't available in the Settings UI
