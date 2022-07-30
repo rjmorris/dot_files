@@ -125,8 +125,8 @@ user_pref("network.dns.disablePrefetch", true);
 user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.predictor.enabled", false);
 
-// More settings to block speculative loading in case I missed disabling any
-// explicitly.
+// Don't download "prefetch" links (<link rel="prefetch" href="...">) before I
+// click on them.
 user_pref("network.prefetch-next", false);
 
 // Privacy & Security > Permissions > Camera > Block new requests asking to access your camera
