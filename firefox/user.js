@@ -72,10 +72,16 @@ user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
 user_pref("browser.search.suggest.enabled", false);
 
 // Privacy & Security > Enhanced Tracking Protection
-user_pref("network.cookie.cookieBehavior", 1);
+user_pref("browser.contentblocking.category", "strict");
+user_pref("network.cookie.cookieBehavior", 5);
+user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true);
+user_pref("privacy.annotate_channels.strict_list.enabled", true);
+user_pref("privacy.partition.network_state.ocsp_cache", true);
+user_pref("privacy.query_stripping.enabled", true);
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
+user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 
 // Privacy & Security > Logins and Passwords > Ask to save logins and passwords for websites
 user_pref("signon.rememberSignons", false);
