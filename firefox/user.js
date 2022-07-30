@@ -86,6 +86,12 @@ user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 // Privacy & Security > Logins and Passwords > Ask to save logins and passwords for websites
 user_pref("signon.rememberSignons", false);
 
+// Privacy & Security > Logins and Passwords > Show alerts about passwords for breached websites
+// It seems like this preference shouldn't apply, because I've disabled saving
+// passwords. However, I'll explicitly disable it anyway, because the Settings
+// UI allows it to be enabled independently of disabling saving passwords.
+user_pref("signon.management.page.breach-alerts.enabled", false);
+
 // Privacy & Security > Forms and Autofill > Autofill addresses
 user_pref("extensions.formautofill.addresses.enabled", false);
 
