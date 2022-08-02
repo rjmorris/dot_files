@@ -184,3 +184,23 @@
 .urlbarView {
     display: none !important;
 }
+
+
+/**************************************************
+ * Toolbar
+ */
+
+/* Hide the button for opening the Download Manager. This can be hidden in the
+ * Customize Toolbar UI, but it's more straightforward this way.
+ */
+#downloads-button {
+    display: none !important;
+}
+
+/* Remove the flexible spacers on either end of the URL bar. I'd rather the URL
+ * take up all available space.
+ */
+#customizableui-special-spring1,
+#customizableui-special-spring2 {
+    display: none !important;
+}
