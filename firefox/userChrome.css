@@ -35,6 +35,20 @@
 
 
 /**************************************************
+ * Tab bar
+ */
+
+/* Starting with version 89, the active tab looks like a button instead of a
+ * tab. Make it look like a tab again. (The original border-radius was 4px all
+ * around, and the original margin-block was 4px top and bottom.)
+ */
+.tab-background {
+	border-radius: 4px 4px 0 0 !important;
+	margin-block: 4px 0 !important;
+}
+
+
+/**************************************************
  * Search bar
  */
 
