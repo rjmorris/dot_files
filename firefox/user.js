@@ -32,6 +32,15 @@ user_pref("browser.download.useDownloadDir", false);
 // mouse button to paste URLs. I don't want it to autoscroll.
 user_pref("general.autoScroll", false);
 
+// General > Browsing > Always show scrollbars
+// On Linux, disabling "Always show scrollbars" hands control over to the
+// system's GTK scrollbars. Those are annoying because they change width
+// depending on whether you're hovering over them. They're really tiny (and
+// sometimes disappear altogether) when you aren't hovering over them. I'm not
+// sure how this applies to Mac and Windows. Setting this pref to false is
+// equivalent to enabling the checkbox in the UI.
+user_pref("widget.gtk.overlay-scrollbars.enabled", false);
+
 // General > Browsing > Recommend extensions as you browse
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 
