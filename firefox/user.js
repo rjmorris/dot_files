@@ -192,6 +192,13 @@ user_pref("browser.download.autohideButton", false);
 // investigation may be warranted here.)
 user_pref("browser.download.folderList", 2);
 
+// Go back to the old behavior where documents like PDFs are saved to the tmp
+// directory when viewing them in the browser. The new behavior saves them to
+// the normal download directory (which I've set to my home directory), where
+// they irritatingly stay after you've closed the PDF (even if you saved it
+// somewhere else).
+user_pref("browser.download.start_downloads_in_tmp_dir", true);
+
 // I'm not exactly sure what this one controls, but I don't want any speculative
 // connections. I think "places" here is referring to URLs stored in a desktop
 // environment's Places menu.
