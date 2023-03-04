@@ -385,7 +385,7 @@ alias R='R --no-restore --no-save'
 alias d=docker
 alias dc="docker compose"
 # fd is named fdfind in the Debian package, because fd was already taken.
-alias fd=fdfind
+alias fd="fdfind --color=never"
 
 function dr() {
     # This one needs to be in a function so that $(pwd) will be re-evaluated on
