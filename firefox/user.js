@@ -248,4 +248,4 @@ user_pref("reader.parse-on-load.enabled", false);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // Don't show a dark scrollbar when the page background is dark.
-user_pref("widget.disable-dark-scrollbar", false);
+user_pref("widget.disable-dark-scrollbar", true);
