@@ -383,7 +383,7 @@ alias  s='ls -F'
 
 alias R='R --no-restore --no-save'
 alias d=docker
-alias dc=docker-compose
+alias dc="docker compose"
 # fd is named fdfind in the Debian package, because fd was already taken.
 alias fd=fdfind
 
