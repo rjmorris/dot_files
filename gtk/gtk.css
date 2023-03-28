@@ -1,0 +1,9 @@
+/* Show the up and down arrow buttons in the scrollbar.
+ *
+ * In Firefox, also need to set
+ * widget.non-native-theme.gtk.scrollbar.allow-buttons to true and restart.
+ */
+* {
+    -GtkScrollbar-has-backward-stepper: 1;
+    -GtkScrollbar-has-forward-stepper: 1;
+}

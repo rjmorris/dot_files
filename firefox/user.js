@@ -249,3 +249,13 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // Don't show a dark scrollbar when the page background is dark.
 user_pref("widget.disable-dark-scrollbar", true);
+
+// Show the up and down arrow buttons in the scrollbar if the native theme
+// supports it. To enable it in GTK, add the following to
+// ~/.config/gtk-3.0/gtk.css:
+//
+// * {
+//     -GtkScrollbar-has-backward-stepper: 1;
+//     -GtkScrollbar-has-forward-stepper: 1;
+// }
+user_pref("widget.non-native-theme.gtk.scrollbar.allow-buttons", true);
