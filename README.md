@@ -9,7 +9,10 @@ $ cd .dot_files
 $ ./install.sh
 ```
 
-Manually link the Firefox files into the Firefox profile directory.
+Manually link the Firefox files into the Firefox profile directory:
+
+- `user.js` goes in `<profiledir`>.
+- `userChrome.css` and `userContent.css` go in `<profildir>/chrome`.
 
 # TODO
 

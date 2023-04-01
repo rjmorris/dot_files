@@ -2,11 +2,14 @@
  * Scrollbars
  */
 
-/* Some websites think it's cute to change the color of the scrollbar. Don't let
- * them. (Width is also possible, but I've only noticed color.)
+/* Some websites think it's cute to change the color or width of the scrollbar.
+ * Don't let them.
  *
- * Also see widget.disable-dark-scrollbar in user.js for another way to prevent
- * the scrollbar color from being changed.
+ * Also see these other settings in user.js that affect scrollbar width and
+ * color:
+ *
+ * - widget.gtk.overlay-scrollbars.enabled and
+ * - widget.disable-dark-scrollbar
  */
 
 * {
