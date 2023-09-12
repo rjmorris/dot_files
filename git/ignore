@@ -6,3 +6,6 @@
 
 # For scratch work
 joey-scratch/
+
+# Mac-specific
+.DS_Store
