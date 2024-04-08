@@ -97,6 +97,14 @@
     display: none !important;
 }
 
+/* Make the background white again. They changed it to light gray sometime
+ * around version 122.
+ */
+#searchbar {
+    background-color: rgb(255, 255, 255) !important;
+    border: solid 1px rgb(224, 224, 224) !important;
+}
+
 
 /**************************************************
  * URL bar
@@ -183,6 +191,14 @@
  */
 .urlbarView {
     display: none !important;
+}
+
+/* Make the background white again. They changed it to light gray sometime
+ * around version 122.
+ */
+#urlbar-background {
+    background-color: rgb(255, 255, 255) !important;
+    border: solid 1px rgb(224, 224, 224) !important;
 }
 
 

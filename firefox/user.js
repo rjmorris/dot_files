@@ -211,6 +211,10 @@ user_pref("browser.search.context.loadInBackground", true);
 // Don't close the window when the last tab is closed.
 user_pref("browser.tabs.closeWindowWithLastTab", false);
 
+// Use black text for the entire URL in the address bar. If set to true, the
+// domain is black and the rest is gray.
+user_pref("browser.urlbar.formatting.enabled", false);
+
 // Don't preload autocompleted URLs in the address bar. (I've done my best to
 // disable autocompleting URLs, but I really don't want this preloading, so
 // explicitly disable it anyway just to be sure.)
