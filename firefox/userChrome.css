@@ -152,38 +152,22 @@
 
 /* Disable the ridiculous behavior where the URL bar expands when it's focused.
  *
- * I got these settings from https://www.userchrome.org/megabar-styling-firefox-address-bar.html
- * The style builder on that page includes a lot of choices that aren't relevant
- * to me, because I'm hiding the entire dropdown menu, so I didn't copy all the
- * generated style rules.
+ * Source: https://github.com/WesleyBranton/Remove-Firefox-Megabar
  */
-/* Set variable values */
-:root {
-    /* Number of pixels of enlargement when URL bar is focused */
-    --mbarstyler-popout-pixels: 0px; /* [0px - 7px] */
-}
-/* Compute new position, width, and padding */
 #urlbar[breakout][breakout-extend] {
-    top: calc(5px - var(--mbarstyler-popout-pixels)) !important;
-    left: calc(0px - var(--mbarstyler-popout-pixels)) !important;
-    width: calc(100% + (2 * var(--mbarstyler-popout-pixels))) !important;
-    padding: var(--mbarstyler-popout-pixels) !important;
+    top: calc((var(--urlbar-container-height) - var(--urlbar-height)) / 2) !important;
+    left: 0 !important;
+    width: 100% !important;
 }
-[uidensity="compact"] #urlbar[breakout][breakout-extend] {
-    top: calc(3px - var(--mbarstyler-popout-pixels)) !important;
-}
-/* Prevent shift of URL bar contents */
-#urlbar[breakout][breakout-extend] > #urlbar-input-container {
+#urlbar[breakout][breakout-extend] > #urlbar-input-container,
+#urlbar[breakout][breakout-extend] > .urlbar-input-container {
     height: var(--urlbar-height) !important;
-    padding: 0 !important;
+    padding-block: 0 !important;
+    padding-inline: var(--urlbar-container-padding) !important;
 }
-/* Do not animate */
 #urlbar[breakout][breakout-extend] > #urlbar-background {
-    animation: none !important;;
-}
-/* Remove shadows */
-#urlbar[breakout][breakout-extend] > #urlbar-background {
-    box-shadow: none !important;
+    animation-name: none !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .05) !important;
 }
 
 /* Hide the entire dropdown containing auto-complete and search engine
