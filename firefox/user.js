@@ -20,6 +20,9 @@
 // General > Startup > Open previous windows and tabs
 user_pref("browser.startup.page", 3);
 
+// General > Tabs > Show an image preview when you hover on a tab
+user_pref("browser.tabs.hoverPreview.showThumbnails", false);
+
 // General > Language > Check your spelling as you type
 user_pref("layout.spellcheckDefault", 0);
 
