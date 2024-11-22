@@ -20,9 +20,6 @@
 // General > Startup > Open previous windows and tabs
 user_pref("browser.startup.page", 3);
 
-// General > Tabs > Show an image preview when you hover on a tab
-user_pref("browser.tabs.hoverPreview.showThumbnails", false);
-
 // General > Language > Check your spelling as you type
 user_pref("layout.spellcheckDefault", 0);
 
@@ -213,6 +210,18 @@ user_pref("browser.search.context.loadInBackground", true);
 
 // Don't close the window when the last tab is closed.
 user_pref("browser.tabs.closeWindowWithLastTab", false);
+
+// Don't show the "new" tab hover preview. The new version shows the page title,
+// the domain name, and a thumbnail of the page content. It also appears
+// quickly, so it shows up pretty much every time you move the mouse to the tab
+// to activate it. Once the preview is open, moving your mouse left or right to
+// other tabs will immediately open the preview on those tabs. The whole thing
+// is annoying. This reverts to the previous behavior that shows a tooltip with
+// the page title, but only after a delay that is long enough not to trigger
+// when you're simply clicking a tab. The related preference
+// browser.tabs.hoverPreview.showThumbnails will disable the thumbnails while
+// keeping the rest of the new behavior.
+user_pref("browser.tabs.hoverPreview.enabled", false);
 
 // Use black text for the entire URL in the address bar. If set to true, the
 // domain is black and the rest is gray.
