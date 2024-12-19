@@ -152,12 +152,15 @@
 
 /* Disable the ridiculous behavior where the URL bar expands when it's focused.
  *
+ * Valid starting in version 133
  * Source: https://github.com/WesleyBranton/Remove-Firefox-Megabar
  */
+
 #urlbar[breakout][breakout-extend] {
-    top: calc((var(--urlbar-container-height) - var(--urlbar-height)) / 2) !important;
-    left: 0 !important;
-    width: 100% !important;
+    top: calc(var(--urlbar-container-height) * 2 - var(--urlbar-height)) !important;
+    width: var(--urlbar-width) !important;
+    position: relative !important;
+    margin: 0 !important;
 }
 #urlbar[breakout][breakout-extend] > #urlbar-input-container,
 #urlbar[breakout][breakout-extend] > .urlbar-input-container {
