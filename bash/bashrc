@@ -446,6 +446,14 @@ fi
 
 
 #-------------------------------------------------------------------------------
+# Docker section
+
+# Disable the menu of keyboard commands that `compose up` prints at the bottom
+# of the terminal window.
+export COMPOSE_MENU=false
+
+
+#-------------------------------------------------------------------------------
 # Miscellaneous section
 
 # 027 is more secure in a multi-user environment but is more trouble than it's
