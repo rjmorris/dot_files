@@ -1,11 +1,11 @@
 /* See https://www.reddit.com/r/FirefoxCSS for lots of examples of rules that
  * can be placed in this file.
  *
- * Also see https://www.reddit.com/r/FirefoxCSS/comments/73dvty/tutorial_how_to_create_and_livedebug_userchromecss/
- * for how to debug these rules and figure them out for yourself. In short:
+ * For debugging the rules and figuring them out for yourself, use the following procedure. (This was taken from https://www.reddit.com/r/FirefoxCSS/comments/73dvty/tutorial_how_to_create_and_livedebug_userchromecss/ and later updated based on changes in Firefox.)
  *
- * - Enable remote debugging in the Developer Tools.
- * - Open the Browser Toolbox and allow the remote debugging session.
+ * - Open Developer Tools and go to Settings.
+ * - Select "Enable browser chrome and add-on debugging toolboxes" and "Enable remote debugging".
+ * - Open the Browser Toolbox (browser window > Tools > Browser Tools > Browser Toolbox) and allow the remote debugging session. Note that the Browser Toolbox isn't available until you've selected the two settings in Developer Tools mentioned in the previous step.
  * - Open userChrome.css in the Style Editor. You can edit this file and see the
  *   changes applied immediately in the browser.
  * - Use the Inspector to see all browser chrome's DOM. This will inform the
@@ -52,71 +52,103 @@
  * Search bar
  */
 
-/* Hide the magnifying glass button that appears on the left end of the text
- * field. The button provided padding for the text field, so after removing
+/* Hide the search engine dropdown button that appears on the left end of the
+ * text field. The button provided padding for the text field, so after removing
  * the button we need to add some padding back.
  */
-.searchbar-search-button {
+#search-container .searchmode-switcher {
     display: none !important;
 }
-.searchbar-textbox {
-    padding-left: 0.5rem !important;
-}
-
-/* If I decide to keep the magnifying glass, at least hide the overlay that
- * indicates a search engine is available on the current page. I find the
- * overlay distracting, and I don't care about search engines on every random
- * page. This has no effect as long as the magnifying glass is hidden.
- */
-.searchbar-search-icon-overlay {
-    display: none !important;
+#search-container .urlbar-input {
+    padding-left: 0.375rem !important;
 }
 
 /* Hide the right arrow that appears on the right end of the text field. You can
  * click this arrow to initiate the search, so it has the same effect as pressing
- * Enter. The button provided padding for the text field, so after removing the
- * button we need to add some padding back.
+ * Enter.
  */
-.search-go-container {
+#search-container .urlbar-go-button {
     display: none !important;
-}
-.searchbar-textbox {
-    padding-right: 0.5rem !important;
 }
 
 /* Hide the placeholder text ("Search", for example).
  */
-.searchbar-textbox::placeholder {
+#search-container .urlbar-input::placeholder {
     color: transparent !important;
-}
-
-/* Hide the entire dropdown containing auto-complete and search engine
- * suggestions.
- */
-#PopupSearchAutoComplete {
-    display: none !important;
 }
 
 /* Make the background white again. They changed it to light gray sometime
  * around version 122.
  */
-#searchbar {
+#search-container .urlbar-background {
     background-color: rgb(255, 255, 255) !important;
+}
+
+/* Add a border to make it stand out a little better in my theme.
+ */
+#search-container .urlbar-background {
     border: solid 1px rgb(224, 224, 224) !important;
 }
 
+/* Remove the box shadow that appears when it's focused.
+ */
+#search-container .urlbar-background {
+    box-shadow: none !important;
+}
+
+/* Remove the blue outline that appears when it's focused. I find it more
+ * distracting than helpful.
+ */
+#search-container .urlbar-background {
+    outline: none !important;
+}
+
+/* Disable the ridiculous behavior where the search bar expands when it's
+ * focused.
+ *
+ * These rules were copied from the URL bar section and edited to apply to the
+ * search bar. However, the rules in the URL bar section are no longer 
+ * applicable, so I might have removed them. They were originally source from
+ * https://github.com/WesleyBranton/Remove-Firefox-Megabar.
+ *
+ * Valid starting in version 152
+ */
+
+#search-container .urlbar[breakout][breakout-extend] {
+    top: auto !important;
+    width: var(--urlbar-width) !important;
+    margin: 0 !important;
+}
+#search-container .urlbar[breakout][breakout-extend] > .urlbar-input-container {
+    height: var(--urlbar-height) !important;
+    padding-block: 0 !important;
+    padding-inline: var(--urlbar-container-padding) !important;
+}
+#search-container .urlbar[breakout][breakout-extend] > .urlbar-background {
+    animation-name: none !important;
+}
 
 /**************************************************
  * URL bar
  *   AKA address bar, omni bar, awesome bar, mega bar
  */
 
+/* Hide the search engine dropdown button that appears on the left when the
+ * text field is empty. The button provided padding for the text field, so
+ * after removing the button we need to add some padding back.
+ */
+#urlbar-container .searchmode-switcher {
+    display: none !important;
+}
+#urlbar-container .urlbar-input {
+    padding-left: 0.375rem !important;
+}
+
 /* Hide the right arrow that appears on the right end of the text field. You can
  * click this arrow to load the URL, so it has the same effect as pressing
  * Enter.
  */
-#urlbar-go-button /* right arrow to go to URL (same effect as pressing enter) */
-{
+#urlbar-container .urlbar-go-button {
     display: none !important;
 }
 
@@ -131,14 +163,20 @@
 }
 
 /* Hide individual buttons that appear at the end of the URL. These have no
- * effect as long as we're hiding the entire set of buttons above. I'd also want
- * to hide the Pocket and Reader icons, but I've disabled those features
- * elsewhere, so their buttons don't show up anyway.
+ * effect as long as we're hiding the entire set of buttons above. Also, I've
+ * disabled the feature associated with some of these buttons in Settings, so
+ * they also wouldn't show up for that reason.
  */
+#contextual-feature-recommendation,
+#userContext-icons, /* I think these come from extensions */
+#reader-mode-button, /* notepad icon to enable Reader mode */
+#picture-in-picture-button, /* icons to enable Picture-In-Picture mode on pages with video */
+#taskbar-tabs-button, /* related to pinning a tab to the desktop's taskbar */
+#translations-button, /* translate pages that are in a foreign language */
+#split-view-button, /* icon that appears in Split View mode to manage the split tabs */
 #pageActionButton, /* "three dots" icon to show menu with more actions */
-#pageActionSeparator, /* separator before "three dots" icon */
 #star-button-box, /* star icon to bookmark the current page */
-#urlbar-zoom-button /* zoom-level indicator (and animation!) */
+#urlbar-zoom-button /* zoom-level indicator (and animation!) that appears when zoom isn't 100% */
 {
     display: none !important;
 }
@@ -154,10 +192,19 @@
  *
  * Valid starting in version 133
  * Source: https://github.com/WesleyBranton/Remove-Firefox-Megabar
+ *
+ * As of version 152, I'm not seeing the URL bar expand when it's focused. My
+ * hypothesis is that it expands as part of the suggestions dropdown, but I'm
+ * hiding that dropdown, so I don't get the expansion. I'm commenting out these
+ * rules for now since they don't appear to be necessary. One thing I noted in
+ * this version is that the urlbar no longer has the "breakout-expand"
+ * attribute. It has "breakout-expand-animate", but not "breakout-expand", so if
+ * we do ever need to bring these rules back, they'll likely need adjusting.
  */
 
+/*
 #urlbar[breakout][breakout-extend] {
-    top: calc(var(--urlbar-container-height) * 2 - var(--urlbar-height)) !important;
+    top: calc(var(--urlbar-container-height) * 2 + var(--tabstrip-min-height) - var(--urlbar-height) - 2px) !important;
     width: var(--urlbar-width) !important;
     position: relative !important;
     margin: 0 !important;
@@ -172,6 +219,7 @@
     animation-name: none !important;
     box-shadow: 0 1px 4px rgba(0, 0, 0, .05) !important;
 }
+*/
 
 /* Hide the entire dropdown containing auto-complete and search engine
  * suggestions.
@@ -183,9 +231,27 @@
 /* Make the background white again. They changed it to light gray sometime
  * around version 122.
  */
-#urlbar-background {
+#urlbar-container .urlbar-background {
     background-color: rgb(255, 255, 255) !important;
+}
+
+/* Add a border to make it stand out a little better in my theme.
+ */
+#urlbar-container .urlbar-background {
     border: solid 1px rgb(224, 224, 224) !important;
+}
+
+/* Remove the box shadow that appears when it's focused.
+ */
+#urlbar-container .urlbar-background {
+    box-shadow: none !important;
+}
+
+/* Remove the blue outline that appears when it's focused. I find it more
+ * distracting than helpful.
+ */
+#urlbar-container .urlbar-background {
+    outline: none !important;
 }
 
 
