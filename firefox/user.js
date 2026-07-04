@@ -202,8 +202,14 @@ user_pref("browser.download.start_downloads_in_tmp_dir", true);
 // Disable the AI chatbot.
 user_pref("browser.ml.chat.enabled", false);
 
+// Remove the "Ask an AI Chatbot" option from the right-click context menu.
+user_pref("browser.ml.chat.menu", false);
+
 // Disable AI features.
 user_pref("browser.ml.enable", false);
+
+// Remove the "Preview Link" option from the right-click context menu.
+user_pref("browser.ml.linkPreview.enabled", false);
 
 // I'm not exactly sure what this one controls, but I don't want any speculative
 // connections. I think "places" here is referring to URLs stored in a desktop
@@ -213,6 +219,10 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // When searching from the context menu (right-click text, choose "Search Google
 // for ...), don't activate the tab where the search is run.
 user_pref("browser.search.context.loadInBackground", true);
+
+// Remove the "Search Image with Google Lens" option from the right-click
+// context menu on images.
+user_pref("browser.search.visualSearch.featureGate", false);
 
 // Don't close the window when the last tab is closed.
 user_pref("browser.tabs.closeWindowWithLastTab", false);
@@ -228,6 +238,10 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 // browser.tabs.hoverPreview.showThumbnails will disable the thumbnails while
 // keeping the rest of the new behavior.
 user_pref("browser.tabs.hoverPreview.enabled", false);
+
+// Remove the "Translate selection to English" option from the right-click
+// context menu.
+user_pref("browser.translations.select.enable", false);
 
 // Use black text for the entire URL in the address bar. If set to true, the
 // domain is black and the rest is gray.
@@ -265,6 +279,10 @@ user_pref("network.prefetch-next", false);
 
 // Disable Reader View.
 user_pref("reader.parse-on-load.enabled", false);
+
+// Disable the screenshot feature, removing the "Take a Screenshot" option from
+// the right-click context menu.
+user_pref("screenshots.browser.component.enabled", false);
 
 // Apply customizations found in [profile]/chrome/userChrome.css
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
