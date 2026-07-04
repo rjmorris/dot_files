@@ -199,6 +199,12 @@ user_pref("browser.download.folderList", 2);
 // somewhere else).
 user_pref("browser.download.start_downloads_in_tmp_dir", true);
 
+// Disable the AI chatbot.
+user_pref("browser.ml.chat.enabled", false);
+
+// Disable AI features.
+user_pref("browser.ml.enable", false);
+
 // I'm not exactly sure what this one controls, but I don't want any speculative
 // connections. I think "places" here is referring to URLs stored in a desktop
 // environment's Places menu.
