@@ -32,3 +32,5 @@
     wsErrorHighlight = all
 [merge]
     conflictStyle = zdiff3
+[help]
+    autocorrect = never
