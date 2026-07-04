@@ -30,3 +30,5 @@
     path = ./config.local
 [diff]
     wsErrorHighlight = all
+[merge]
+    conflictStyle = zdiff3
