@@ -107,9 +107,7 @@
  * focused.
  *
  * These rules were copied from the URL bar section and edited to apply to the
- * search bar. However, the rules in the URL bar section are no longer 
- * applicable, so I might have removed them. They were originally source from
- * https://github.com/WesleyBranton/Remove-Firefox-Megabar.
+ * search bar.
  *
  * Valid starting in version 152
  */
@@ -188,38 +186,30 @@
     color: transparent !important;
 }
 
-/* Disable the ridiculous behavior where the URL bar expands when it's focused.
+/* Disable the ridiculous behavior where the URL bar expands when I've started
+ * typing in it.
  *
- * Valid starting in version 133
- * Source: https://github.com/WesleyBranton/Remove-Firefox-Megabar
+ * Valid starting in version 152
+ * Original source: https://github.com/WesleyBranton/Remove-Firefox-Megabar
+ *   (but modified significantly since then)
  *
- * As of version 152, I'm not seeing the URL bar expand when it's focused. My
- * hypothesis is that it expands as part of the suggestions dropdown, but I'm
- * hiding that dropdown, so I don't get the expansion. I'm commenting out these
- * rules for now since they don't appear to be necessary. One thing I noted in
- * this version is that the urlbar no longer has the "breakout-expand"
- * attribute. It has "breakout-expand-animate", but not "breakout-expand", so if
- * we do ever need to bring these rules back, they'll likely need adjusting.
+ * As of version 152, the URL doesn't expand until I start typing in it.
+ * Earlier, it expanded as soon as it received focus.
  */
 
-/*
 #urlbar[breakout][breakout-extend] {
-    top: calc(var(--urlbar-container-height) * 2 + var(--tabstrip-min-height) - var(--urlbar-height) - 2px) !important;
+    top: auto !important;
     width: var(--urlbar-width) !important;
-    position: relative !important;
     margin: 0 !important;
 }
-#urlbar[breakout][breakout-extend] > #urlbar-input-container,
 #urlbar[breakout][breakout-extend] > .urlbar-input-container {
     height: var(--urlbar-height) !important;
     padding-block: 0 !important;
     padding-inline: var(--urlbar-container-padding) !important;
 }
-#urlbar[breakout][breakout-extend] > #urlbar-background {
+#urlbar[breakout][breakout-extend] > .urlbar-background {
     animation-name: none !important;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .05) !important;
 }
-*/
 
 /* Hide the entire dropdown containing auto-complete and search engine
  * suggestions.
